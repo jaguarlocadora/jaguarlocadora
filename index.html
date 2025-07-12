@@ -1029,16 +1029,16 @@ nav ul li a:hover::after {
         }
         
         .contact-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-            flex-shrink: 0;
-        }
+    width: 60px;
+    height: 60px;
+    background: var(--gradient);
+    border-radius: 15px;
+    display: flex; /* Garante que é um contêiner flexível */
+    align-items: center; /* Centraliza o item flex (o <i>) verticalmente */
+    justify-content: center; /* Centraliza o item flex (o <i>) horizontalmente */
+    margin-right: 20px; /* Isso é para o espaçamento à direita em desktop */
+    flex-shrink: 0;
+}
         
         .contact-icon i {
             color: var(--white);
@@ -1441,16 +1441,22 @@ nav ul li a:hover::after {
             }
 
             .contact-item {
-                flex-direction: column; /* Empilha ícone e texto para melhor legibilidade */
-                text-align: center;
-                align-items: center;
-            }
+        flex-direction: column; /* Empilha ícone acima do texto */
+        align-items: center; /* Centraliza horizontalmente */
+        text-align: center; /* Centraliza o texto */
+    }
+    
+    .contact-icon {
+        margin-right: 0; /* Remove margem lateral */
+        margin-bottom: 10px; /* Espaço entre ícone e texto */
+    }
+}
 
             .contact-item i {
                 margin-right: 0;
                 margin-bottom: 10px;
             }
-        }
+        
         
         @media (max-width: 576px) {
             .hero h1 {
@@ -1638,6 +1644,16 @@ nav ul li a:hover::after {
     color: #ff0000; /* Cor vermelha para o coração curtido */
     /* Você pode adicionar outras propriedades, como um pequeno scale */
     transform: scale(1.1);
+}
+
+/* Correção forçada para centralizar o ícone do Font Awesome */
+.contact-icon i.fas,
+.contact-icon i.fab { /* Seletores mais específicos para os ícones Font Awesome */
+    margin: 0 !important; /* Remove todas as margens forçadamente */
+    padding: 0 !important; /* Remove todos os paddings forçadamente */
+    line-height: 1 !important; /* Garante que a altura da linha não crie espaçamento extra */
+    vertical-align: middle !important; /* Garante alinhamento vertical */
+    display: block; /* Trata o ícone como um bloco para melhor controle de alinhamento */
 }
 
     </style>
