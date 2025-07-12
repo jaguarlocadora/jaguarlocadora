@@ -1,0 +1,2630 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaguar Locadora | Locação de Máquinas e Veículos</title>
+    <meta name="description" content="Soluções completas em locação de equipamentos pesados. Frota moderna, manutenção garantida e atendimento personalizado.">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Swiper JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #FF2E2E;
+            --accent: #FF5E14;
+            --white: #FFFFFF;
+            --light-gray: #F8F8F8;
+            --dark-gray: #222222;
+            --text: #333333;
+            --gradient: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            background-color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Kanit', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .preloader.fade-out {
+            opacity: 0;
+        }
+        
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--secondary);
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(10px);
+}
+
+header.scrolled {
+    padding: 15px 5%;
+    background-color: rgba(0, 0, 0, 0.97);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--gradient);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.logo-icon i {
+    color: var(--white);
+    font-size: 20px;
+}
+
+.logo-text {
+    color: var(--white);
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.logo-text span {
+    color: var(--secondary);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 40px;
+    position: relative;
+}
+
+nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+}
+
+nav ul li a:hover {
+    color: var(--secondary);
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: var(--gradient);
+    bottom: 0;
+    left: 0;
+    transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 3px;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+.nav-cta {
+    background: var(--gradient);
+    padding: 10px 25px;
+    border-radius: 30px;
+    margin-left: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 46, 46, 0.3);
+}
+
+.nav-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 46, 46, 0.4);
+    color: var(--white) !important; /* Adicionei !important aqui */
+}
+
+.nav-cta::after {
+    display: none;
+}
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 28px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-btn:hover {
+            color: var(--secondary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 800px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            padding: 0 5%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-text {
+            max-width: 700px;
+        }
+        
+        .hero h1 {
+            font-size: 64px;
+            margin-bottom: 20px;
+            color: var(--white);
+            line-height: 1.1;
+        }
+        
+        .hero h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+                text-align: justify; /* ADICIONADO: Justifica o texto */
+
+        }
+        
+        .hero-btns {
+    display: flex;
+    gap: 20px;
+    justify-content: center; /* ADICIONADO: Centraliza os botões horizontalmente */
+    align-items: center;    /* ADICIONADO: Garante alinhamento vertical se necessário (boa prática) */
+    flex-wrap: wrap;        /* ADICIONADO: Permite que os botões quebrem a linha em telas menores */
+}
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+            font-family: 'Kanit', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 16px;
+        }
+        
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--white);
+            box-shadow: 0 10px 30px rgba(255, 46, 46, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 46, 46, 0.5);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--white);
+            transform: translateY(-5px);
+        }
+        
+        .btn i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        
+        .hero-stats {
+            display: flex;
+            margin-top: 60px;
+            gap: 40px;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .stat-icon i {
+            color: var(--secondary);
+            font-size: 24px;
+        }
+        
+        .stat-text h3 {
+            font-size: 36px;
+            color: var(--white);
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+        
+        .stat-text p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0;
+        }
+        
+        /* Floating Elements */
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            backdrop-filter: blur(2px);
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        /* SUBSTITUÍDO: Nova definição do keyframes para movimento contido e persistente */
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg); /* Começa na posição base */
+    }
+    25% {
+        transform: translate(10px, -15px) rotate(5deg); /* Move um pouco na diagonal para cima */
+    }
+    50% {
+        transform: translate(0, -30px) rotate(-5deg); /* Move mais para cima */
+    }
+    75% {
+        transform: translate(-10px, -15px) rotate(0deg); /* Move um pouco na diagonal para cima e para o outro lado */
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg); /* Retorna à posição inicial */
+    }
+}
+
+.floating-element {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.08); /* SUBSTITUÍDO: Aumenta a opacidade para 0.08 (era 0.05) para serem mais visíveis */
+    border-radius: 50%;
+    backdrop-filter: blur(2px);
+    animation: float 5s infinite ease-in-out; /* SUBSTITUÍDO: Aumenta a duração para 25s para um movimento mais lento e suave */
+    /* Garanta que as posições iniciais embutidas no HTML (top, left, width, height) 
+       sejam razoáveis para que elas não comecem fora da tela.
+       Ex: style="width: 300px; height: 300px; top: 10%; left: 5%;"
+    */
+}
+        
+        /* Sections */
+        .section {
+            padding: 120px 5%;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .section-title h2 {
+    font-size: 48px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px; /* ADICIONADO: Adiciona mais espaço abaixo do texto do título */
+}
+        
+        .section-title h2 span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-title h2::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 8px;
+    background: var(--gradient);
+    bottom: -5px; /* SUBSTITUÍDO: Mova a linha para baixo ajustando este valor */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+    opacity: 0.7;
+}
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 20px auto 0;
+            color: var(--text);
+            opacity: 0.8;
+            font-size: 18px;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--white);
+        }
+        
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            
+        }
+        
+        .about-image {
+            flex: 1;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+            min-height: 500px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-badge {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            background: var(--gradient);
+            color: var(--white);
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(255, 46, 46, 0.3);
+        }
+        
+        .about-content {
+            flex: 1;
+        }
+        
+        .about-content h3 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+        }
+        
+        .about-content p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.8;
+    
+}
+
+        
+        .about-features {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .feature-icon i {
+            color: var(--white);
+            font-size: 20px;
+        }
+        
+        .feature-text h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--dark-gray);
+        }
+        
+        .feature-text p {
+            margin: 0;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        /* Fleet Section */
+        .fleet {
+            background-color: var(--light-gray);
+        }
+        
+        .fleet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .fleet-filter {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            padding: 12px 25px;
+            background-color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-family: 'Kanit', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .filter-btn.active {
+            background: var(--gradient);
+            color: var(--white);
+            box-shadow: 0 10px 20px rgba(255, 46, 46, 0.3);
+        }
+        
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .vehicle-card {
+            background-color: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+        
+        .vehicle-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .vehicle-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gradient);
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .vehicle-media {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .vehicle-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .vehicle-card:hover .vehicle-media img {
+            transform: scale(1.1);
+        }
+        
+        .vehicle-content {
+            padding: 25px;
+        }
+        
+        .vehicle-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .vehicle-title h3 {
+            font-size: 22px;
+            color: var(--dark-gray);
+        }
+        
+        .vehicle-price {
+            font-family: 'Kanit', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .vehicle-specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .spec-item {
+            display: flex;
+            align-items: center;
+            background: var(--light-gray);
+            padding: 8px 15px;
+            border-radius: 50px;
+        }
+        
+        .spec-item i {
+            color: var(--secondary);
+            margin-right: 8px;
+            font-size: 14px;
+        }
+        
+        .spec-item span {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .vehicle-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .vehicle-action {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .action-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--light-gray);
+            color: var(--dark-gray);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .action-btn:hover {
+            background: var(--gradient);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        
+        .view-all {
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        /* Services Section */
+        .services {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            opacity: 0.03;
+            z-index: -1;
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+            transition: all 0.4s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card:hover::before {
+            height: 100%;
+            opacity: 0.05;
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: var(--white);
+            transition: all 0.4s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: rotateY(180deg);
+            background: var(--primary);
+        }
+        
+        .service-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+        }
+        
+        .service-content p {
+            color: var(--text);
+            opacity: 0.8;
+            font-size: 15px;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background: var(--gradient);
+            color: var(--white);
+            position: relative;
+        }
+        
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwMCAxMDAwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAwIiBoZWlnaHQ9IjEwMDAiIGZpbGw9IiNmZjJhMmEiPjwvcmVjdD48cGF0aCBkPSJNMTAwMCwwTDEwMDAsMTAwTDEwMCwxMDAwTDAsMTAwMFoiIGZpbGw9IiNmZjVlMTQiIG9wYWNpdHk9IjAuNSI+PC9wYXRoPjwvc3ZnPg==') no-repeat;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .testimonials .section-title h2 {
+            color: var(--white);
+        }
+        
+        .testimonials .section-title p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .testimonials .section-title h2::after {
+            background: var(--white);
+            opacity: 0.5;
+        }
+        
+        .testimonial-slider {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-slide {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .testimonial-rating {
+            color: #FFD700;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .testimonial-text {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 25px;
+            line-height: 1.8;
+            position: relative;
+        }
+        
+        .testimonial-text::before,
+.testimonial-text::after {
+    content: '"';
+    font-size: 50px;
+    color: rgba(255, 255, 255, 0.8); /* SUBSTITUÍDO: Aumentado a opacidade para branco mais visível */
+    position: absolute;
+    font-family: serif;
+    line-height: 1;
+}
+        
+        .testimonial-text::before {
+            top: -20px;
+            left: -30px;
+        }
+        
+        .testimonial-text::after {
+            bottom: -40px;
+            right: -30px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-company {
+            opacity: 0.8;
+            font-size: 14px;
+        }
+        
+        .swiper-pagination-bullet {
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 1;
+            width: 12px;
+            height: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .swiper-pagination-bullet-active {
+            background: var(--white);
+            transform: scale(1.2);
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 100px 5%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .cta p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.8;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--white);
+        }
+        
+        .contact-container {
+            display: flex;
+            justify-content: center; /* Centraliza o conteúdo */
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 0 1 500px; /* Ajusta o flex para ocupar o espaço e ter largura máxima */
+            /* Removido min-width: 300px; e flex: 1; para usar flex-basis */
+        }
+        
+        .contact-info h3 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: var(--dark-gray);
+            text-align: center; /* Centraliza o título */
+        }
+        
+        .contact-details {
+            margin-bottom: 40px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .contact-icon i {
+            color: var(--white);
+            font-size: 24px;
+        }
+        
+        .contact-text h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--dark-gray);
+        }
+        
+        .contact-text p, .contact-text a {
+            color: var(--text);
+            opacity: 0.8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-text a:hover {
+            color: var(--secondary);
+            opacity: 1;
+        }
+        
+        .contact-social {
+            display: flex;
+            gap: 15px;
+            justify-content: center; /* Centraliza os ícones sociais */
+            margin-top: 40px; /* Adiciona margem superior para separar dos detalhes */
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-gray);
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--gradient);
+            color: var(--white);
+            transform: translateY(-5px);
+        }
+        
+        .map-container {
+            margin-top: 80px;
+            width: 100%;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 100px 5% 50px;
+            position: relative;
+        }
+        
+        .footer-wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23ffffff" opacity=".05"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%23ffffff" opacity=".1"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23ffffff"/></svg>') no-repeat;
+            background-size: cover;
+            transform: rotate(180deg);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+        
+        .footer-logo-icon i {
+            color: var(--white);
+            font-size: 20px;
+        }
+        
+        .footer-logo-text {
+            color: var(--white);
+            font-size: 24px;
+            font-weight: 800;
+        }
+        
+        .footer-logo-text span {
+            color: var(--secondary);
+        }
+        
+        .footer-about p {
+            opacity: 0.7;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            background: var(--gradient);
+            transform: translateY(-5px);
+        }
+        
+        .footer-links h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            color: var(--white);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient);
+            bottom: 0;
+            left: 0;
+            border-radius: 3px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+            transform: translateX(5px);
+        }
+        
+        .footer-links a i {
+            margin-right: 10px;
+            font-size: 12px;
+            color: var(--secondary);
+        }
+        
+        .footer-newsletter p {
+            opacity: 0.7;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .newsletter-form {
+            display: flex;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px 0 0 8px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .newsletter-input:focus {
+            outline: none;
+        }
+        
+        .newsletter-btn {
+            padding: 0 20px;
+            background: var(--gradient);
+            color: var(--white);
+            border: none;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-btn:hover {
+            opacity: 0.9;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-bottom p {
+            opacity: 0.7;
+            font-size: 14px;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 999;
+            box-shadow: 0 10px 30px rgba(255, 46, 46, 0.3);
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            background: var(--primary);
+        }
+        
+        /* Floating WhatsApp */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease; /* Mantém a transição para a animação de hover */
+
+    /* PROPRIEDADES ADICIONADAS AQUI para ocultar inicialmente */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease-out, visibility 0.8s ease-out, transform 0.3s ease; /* Ajusta transição para aparecer/desaparecer */
+}
+        
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 54px;
+            }
+            
+            .section-title h2 {
+                font-size: 42px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+            
+            .about-container {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                width: 100%;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+                align-items: center; /* Centraliza o contact-info quando em coluna */
+            }
+            
+            .fleet-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .fleet-filter {
+                flex-wrap: wrap;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 42px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+
+                           
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .section {
+                padding: 80px 5%;
+            }
+            
+            .section-title h2 {
+                font-size: 36px;
+            }
+            
+            .fleet-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-slide {
+                padding: 30px;
+            }
+            
+            .testimonial-text::before {
+                left: -15px;
+            }
+            
+            .testimonial-text::after {
+                right: -15px;
+            }
+            
+            .cta h2 {
+                font-size: 36px;
+            }
+            
+            .contact-info {
+                max-width: 100%; /* Ocupa a largura total em mobile */
+            }
+
+            .contact-item {
+                flex-direction: column; /* Empilha ícone e texto para melhor legibilidade */
+                text-align: center;
+                align-items: center;
+            }
+
+            .contact-item i {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .section-title h2 {
+                font-size: 32px;
+            }
+            
+            .section-title h2::after {
+                width: 60px;
+                height: 6px;
+            }
+            
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-text::before,
+            .testimonial-text::after {
+                display: none;
+            }
+            
+            .back-to-top,
+            .floating-whatsapp {
+                width: 50px;
+                height: 50px;
+                font-size: 18px;
+                bottom: 20px;
+            }
+            
+            .floating-whatsapp {
+                left: 20px;
+            }
+        }
+
+        .floating-whatsapp {
+    text-decoration: none; /* Remove o sublinhado */
+}
+
+/* Remove sublinhado dos links de redes sociais */
+.footer-social a,
+.contact-social a {
+    text-decoration: none; /* Adicionado: Remove o sublinhado */
+}
+
+/* Oculta elementos com a classe 'hidden' */
+.hidden {
+    display: none !important; /* Força a ocultação, importante se houver outras regras de display */
+}
+
+/* --- Estilos para o Menu Mobile e Overlay --- */
+
+/* Esconde o menu e o overlay por padrão */
+.mobile-menu, .overlay {
+    display: none; /* Inicia escondido */
+}
+
+/* Estilo para o overlay (fundo escuro que aparece quando o menu está aberto) */
+.overlay {
+    position: fixed; /* Fixa na tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo preto semi-transparente */
+    z-index: 999; /* Garante que fique acima de quase todo o conteúdo */
+    transition: opacity 0.3s ease; /* Animação suave para aparecer/desaparecer */
+}
+
+/* Estilo para o menu mobile em si */
+.mobile-menu {
+    position: fixed; /* Fixa na tela */
+    top: 0;
+    right: -300px; /* Esconde o menu para fora da tela (ajuste a largura se o seu menu for maior) */
+    width: 300px; /* Largura do menu */
+    height: 100%;
+    background-color: #ffffff; /* Cor de fundo do menu */
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
+    z-index: 1000; /* Acima do overlay */
+    transition: right 0.3s ease-out; /* Animação suave para deslizar */
+    overflow-y: auto; /* Adiciona scroll se o conteúdo for muito grande */
+    -webkit-overflow-scrolling: touch; /* Melhora o scroll em iOS */
+}
+
+/* Estilos quando o menu e o overlay estão ativos (visíveis) */
+.mobile-menu.active {
+    right: 0; /* Move o menu para dentro da tela */
+    display: block; /* Garante que o display esteja ativo */
+}
+
+.overlay.active {
+    display: block; /* Garante que o display esteja ativo */
+}
+
+/* Estilo do botão de fechar dentro do menu */
+.mobile-menu-close {
+    background: none;
+    border: none;
+    font-size: 2rem; /* Tamanho do 'X' */
+    color: #333;
+    cursor: pointer;
+    padding: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1001; /* Garante que o botão de fechar esteja acima de tudo no menu */
+}
+
+/* Estilo da lista de links do menu */
+.mobile-menu ul {
+    list-style: none;
+    padding: 70px 0 20px 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Alterado para stretch */
+    width: 100%; /* Garante que ocupe toda a largura */
+}
+
+.mobile-menu ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 15px 25px;
+    display: block;
+    border-bottom: 1px solid #eee;
+    text-align: center; /* Centraliza o texto */
+}
+
+.mobile-menu ul li:last-child a {
+    border-bottom: none; /* Remove a linha do último item */
+}
+
+.mobile-menu ul li a:hover {
+    background-color: #f5f5f5; /* Cor ao passar o mouse */
+}
+
+/* Estilo específico para o botão de Orçamento (WhatsApp) no menu */
+.mobile-menu .nav-cta {
+    background-color: #25D366;
+    color: #fff;
+    padding: 15px 25px;
+    text-align: center;
+    margin: 15px 20px 0; /* Margem superior e laterais */
+    border-radius: 5px;
+    display: block;
+    text-decoration: none;
+    width: auto; /* Remove qualquer width fixo */
+}
+
+.mobile-menu .nav-cta:hover {
+    background-color: #1DA851; /* Cor mais escura ao passar o mouse */
+}
+
+.mobile-menu .nav-cta i {
+    margin-left: 8px;
+}
+
+.view-all-btn {
+    background: var(--gradient);
+    color: var(--white);
+    border: none;
+}
+
+.view-all-btn:hover {
+    background: var(--primary);
+    transform: translateY(-5px);
+}
+
+/* Adicionado: Justifica apenas o primeiro parágrafo da seção "Sobre Nós" */
+.about-content .main-about-text {
+    text-align: justify;
+}
+
+/* Estilo para o ícone de coração */
+.heart-icon {
+    cursor: pointer;
+    color: #ccc; /* Cor padrão do coração (cinza) */
+    transition: color 0.2s ease-in-out; /* Transição suave para a cor */
+}
+
+/* Estilo quando o coração está "curtido" */
+.heart-icon.liked {
+    color: #ff0000; /* Cor vermelha para o coração curtido */
+    /* Você pode adicionar outras propriedades, como um pequeno scale */
+    transform: scale(1.1);
+}
+
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader"></div>
+    </div>
+    
+    <!-- Header -->
+    <header id="header">
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-truck-monster"></i>
+            </div>
+            <div class="logo-text">Jaguar<span>Locadora</span></div>
+        </a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#about">Sobre Nós</a></li>
+                <li><a href="#fleet">Frota</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li class="hidden"><a href="#testimonials">Depoimentos</a></li>
+                <li><a href="#contact">Contato</a></li>
+                <li><a href="https://wa.me/557791334695" class="nav-cta" target="_blank">Orçamento <i class="fab fa-whatsapp"></i></a></li>
+            </ul>
+        </nav>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" id="mobileMenuClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul>
+            <li><a href="#home">Início</a></li>
+            <li><a href="#about">Sobre Nós</a></li>
+            <li><a href="#fleet">Frota</a></li>
+            <li><a href="#services">Serviços</a></li>
+            <li class="hidden"><a href="#testimonials">Depoimentos</a></li>
+            <li><a href="#contact">Contato</a></li>
+            <li><a href="https://wa.me/557791334695" class="nav-cta" target="_blank">Orçamento <i class="fab fa-whatsapp"></i></a></li>
+        </ul>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <video class="hero-video" autoplay muted loop>
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-heavy-excavator-working-in-construction-site-21847-large.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <div class="hero-text" data-aos="fade-up" data-aos-duration="1000">
+                <h1>Potência em <span>movimento</span>. Confiança em cada <span>locação</span>.</h1>
+                <p>Soluções completas em locação de máquinas e veículos para construção, transporte e logística. Tecnologia, segurança e eficiência para o seu projeto.</p>
+                <div class="hero-btns">
+                    <a href="https://wa.me/557791334695" class="btn btn-primary" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Fale no WhatsApp
+                    </a>
+                    <a href="#fleet" class="btn btn-secondary">
+                        <i class="fas fa-truck-pickup"></i> Conheça nossa frota
+                    </a>
+                </div>
+                <div class="hero-stats hidden">
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="stat-text">
+                            <h3>50+</h3>
+                            <p>Equipamentos</p>
+                        </div>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-text"> 
+                            <h3>12+</h3>
+                            <p>Anos de Experiência</p>
+                        </div>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="600">
+                        <div class="stat-icon">
+                            <i class="fas fa-smile"></i>
+                        </div>
+                        <div class="stat-text">
+                            <h3>100%</h3>
+                            <p>Clientes Satisfeitos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating Elements -->
+        <div class="floating-elements">
+            <div class="floating-element" style="width: 300px; height: 300px; top: 10%; left: 5%; animation-delay: 0s;"></div>
+            <div class="floating-element" style="width: 200px; height: 200px; bottom: 15%; right: 10%; animation-delay: 2s;"></div>
+            <div class="floating-element" style="width: 150px; height: 150px; top: 40%; right: 20%; animation-delay: 4s;"></div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="section about hidden" id="about">
+        <div class="section-title" data-aos="fade-up">
+            <h2><span>Sobre Nós</span></h2>
+            <p>Conheça a Jaguar Locadora e descubra por que somos referência em locação de máquinas e veículos na Bahia</p>
+        </div>
+        
+        <div class="about-container hidden">
+            <div class="about-image" data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Equipe Jaguar Locadora">
+                <div class="about-badge" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-award"></i> 12+ Anos de Experiência
+                </div>
+            </div>
+            <div class="about-content" data-aos="fade-left">
+    <h3>Excelência em locação de equipamentos pesados</h3>
+    <p class="main-about-text">Fundada em 2010, a Jaguar Locadora surgiu com o propósito de oferecer soluções completas e personalizadas em locação de máquinas e veículos para construção civil, transporte e logística na região de Guanambi e toda Bahia.</p>
+    <p class="main-about-text">Nosso diferencial está no atendimento personalizado, frota moderna e manutenção preventiva rigorosa, garantindo segurança e eficiência em todas as etapas do seu projeto.</p>
+    
+                <div class="about-features">
+                    <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Segurança Garantida</h4>
+                            <p>Todos os equipamentos passam por rigorosa manutenção preventiva</p>
+                        </div>
+                    </div>
+                    <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Suporte 24/7</h4>
+                            <p>Atendimento especializado disponível quando você precisar</p>
+                        </div>
+                    </div>
+                    <div class="feature-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Entrega Rápida</h4>
+                            <p>Logística eficiente para atender sua demanda no prazo</p>
+                        </div>
+                    </div>
+                    <div class="feature-item" data-aos="fade-up" data-aos-delay="500">
+                        <div class="feature-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Melhor Custo-Benefício</h4>
+                            <p>Pacotes personalizados para otimizar seu investimento</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Fleet Section -->
+    <section class="section fleet" id="fleet">
+        <div class="section-title" data-aos="fade-up">
+            <h2><span>Nossa Frota</span></h2>
+            <p>Equipamentos modernos e bem conservados para atender todas as necessidades do seu projeto</p>
+        </div>
+        
+        <div class="fleet-header" data-aos="fade-up">
+            <h3>Selecione por categoria:</h3>
+            <div class="fleet-filter">
+    <button class="filter-btn active" data-filter="all">Todos</button>
+    <button class="filter-btn" data-filter="passeio">Passeio</button>
+    <button class="filter-btn" data-filter="pickup">Pick-ups</button>
+    <button class="filter-btn" data-filter="caminhao" hidden>Caminhões</button>
+    <button class="filter-btn" data-filter="maquinas" hidden>Máquinas pesadas</button>
+    <button class="filter-btn" data-filter="outros" hidden>Outros</button>
+</div>
+        </div>
+        
+        <div class="fleet-grid">
+            <!-- Vehicle 1 -->
+            <div class="vehicle-card" data-category="passeio" data-aos="fade-up" data-aos-delay="100" **data-vehicle-id="renault-duster"**>
+    <div class="vehicle-badge">Verificar</div>
+    <div class="vehicle-media">
+        <img src="imagens/veiculos/duster_renault_2025.jpeg" alt="Caminhão Truck">
+    </div>
+    <div class="vehicle-content">
+        <div class="vehicle-title">
+            <h3>RENAULT/DUSTER</h3>
+            <div class="vehicle-price" hidden>R$ 350/dia</div>
+        </div>
+        <div class="vehicle-specs">
+            <div class="spec-item">
+                <i class="fas fa-gas-pump"></i>
+                <span>Flex</span>
+            </div>
+            <div class="spec-item">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>142CV</span>
+            </div>
+            <div class="spec-item">
+                <i class="fas fa-snowplow"></i>
+                <span>4x2</span>
+            </div>
+            <div class="spec-item">
+                <i class="fas fa-calendar-alt"></i>
+                <span>2013/2014</span>
+            </div>
+        </div>
+        <div class="vehicle-footer">
+            <a href="https://wa.me/557791334695" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;" target="_blank">
+                <i class="fab fa-whatsapp"></i> Alugar
+            </a>
+            <div class="vehicle-action">
+                <button class="action-btn">
+                    <i class="far fa-heart heart-icon"></i> </button>
+                <button class="action-btn share-btn">
+                    <i class="fas fa-share-alt"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- Vehicle 2 -->
+
+<div class="vehicle-card" data-category="pickup" data-aos="fade-up" data-aos-delay="200" **data-vehicle-id="renault-oroch"**>
+    <div class="vehicle-badge">Verificar</div>
+    <div class="vehicle-media">
+        <img src="imagens/veiculos/oroch_renault_2025.jpeg" alt="Oroch">
+    </div>
+    <div class="vehicle-content">
+        <div class="vehicle-title">
+            <h3>RENAULT/OROCH</h3>
+            <div class="vehicle-price" hidden>R$ 800/dia</div>
+        </div>
+        <div class="vehicle-specs">
+            <div class="spec-item">
+                <i class="fas fa-gas-pump"></i>
+                <span>Flex</span>
+            </div>
+            <div class="spec-item">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>120CV</span>
+            </div>
+            <div class="spec-item">
+                <i class="fas fa-snowplow"></i>
+                <span>Cabine Dupla</span>
+            </div>
+            <div class="spec-item">
+                <i class="fas fa-calendar-alt"></i>
+                <span>2022</span>
+            </div>
+        </div>
+        <div class="vehicle-footer">
+            <a href="https://wa.me/557791334695" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;" target="_blank">
+                <i class="fab fa-whatsapp"></i> Alugar
+            </a>
+            <div class="vehicle-action">
+                <button class="action-btn">
+                    <i class="far fa-heart heart-icon"></i> </button>
+                <button class="action-btn share-btn">
+                    <i class="fas fa-share-alt"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- Vehicle 3 -->
+
+
+<div class="vehicle-card" data-category="pickup" data-aos="fade-up" data-aos-delay="300" **data-vehicle-id="fiat-strada"**>
+    <div class="vehicle-badge">Verificar</div>
+    <div class="vehicle-media">
+        <img src="imagens/veiculos/fiat_strada_endurance_2025.jpg" alt="Fiat/Stada">
+    </div>
+    <div class="vehicle-content">
+        <div class="vehicle-title">
+            <h3>Fiat/Strada</h3>
+            <div class="vehicle-price" hidden>R$ 200/dia</div>
+        </div>
+        <div class="vehicle-specs">
+            <div class="spec-item">
+                <i class="fas fa-gas-pump"></i>
+                <span>Flex</span>
+            </div>
+            <div class="spec-item">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>85CV</span>
+            </div>
+            <div class="spec-item">
+                <i class="fas fa-snowplow"></i>
+                <span>Cabine Dupla</span>
+            </div>
+            <div class="spec-item">
+                <i class="fas fa-calendar-alt"></i>
+                <span>2022/2023</span>
+            </div>
+        </div>
+        <div class="vehicle-footer">
+            <a href="https://wa.me/557791334695" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;" target="_blank">
+                <i class="fab fa-whatsapp"></i> Alugar
+            </a>
+            <div class="vehicle-action">
+                <button class="action-btn">
+                    <i class="far fa-heart heart-icon"></i> </button>
+                <button class="action-btn share-btn">
+                    <i class="fas fa-share-alt"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+            
+            <!-- Vehicle 4 -->
+            <div class="vehicle-card hidden" data-category="outros" data-aos="fade-up" data-aos-delay="600">
+                <div class="vehicle-badge">Verificar</div>
+                <div class="vehicle-media">
+                    <img src="https://images.unsplash.com/photo-1631792973029-8a9b8c8c9c7f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Rolo Compactador">
+                </div>
+                <div class="vehicle-content">
+                    <div class="vehicle-title">
+                        <h3>Rolo Compactador</h3>
+                        <div class="vehicle-price">R$ 500/dia</div>
+                    </div>
+                    <div class="vehicle-specs">
+                        <div class="spec-item">
+                            <i class="fas fa-gas-pump"></i>
+                            <span>Diesel</span>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-weight"></i>
+                            <span>10 ton</span>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-ruler-horizontal"></i>
+                            <span>2m largura</span>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>2019</span>
+                        </div>
+                    </div>
+                    <div class="vehicle-footer">
+                        <a href="https://wa.me/557791334695" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Alugar
+                        </a>
+                        <div class="vehicle-action">
+                            <button class="action-btn">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-all" data-aos="fade-up">
+            <a href="#fleet" class="btn view-all-btn">Ver Todos os Equipamentos</a>
+
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="section-title" data-aos="fade-up">
+            <h2><span>Nossos Serviços</span></h2>
+            <p>Soluções personalizadas para atender todas as necessidades do seu projeto</p>
+        </div>
+        
+        <div class="services-container">
+            <!-- Service 1 -->
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-icon">
+                    <i class="fas fa-calendar-day"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Locação Diária</h3>
+                    <p>Ideal para projetos rápidos e demandas pontuais, com entrega imediata e suporte especializado.</p>
+                </div>
+            </div>
+            
+            <!-- Service 2 -->
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-icon">
+                    <i class="fas fa-calendar-week"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Locação Semanal</h3>
+                    <p>Pacote econômico com desconto progressivo para projetos de média duração.</p>
+                </div>
+            </div>
+            
+            <!-- Service 3 -->
+            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Locação Mensal</h3>
+                    <p>Melhor custo-benefício para obras contínuas, com manutenção preventiva inclusa.</p>
+                </div>
+            </div>
+            
+            <!-- Service 4 -->
+            <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="service-icon">
+                    <i class="fas fa-hard-hat"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Obras Civis</h3>
+                    <p>Equipamentos especializados para construção de edifícios, pontes e infraestrutura urbana.</p>
+                </div>
+            </div>
+            
+            <!-- Service 5 -->
+            <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="service-icon">
+                    <i class="fas fa-truck-moving"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Transporte de Cargas</h3>
+                    <p>Frota diversificada para transporte seguro de materiais de construção e equipamentos pesados.</p>
+                </div>
+            </div>
+            
+            <!-- Service 6 -->
+            <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="service-icon">
+                    <i class="fas fa-road"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Pavimentação</h3>
+                    <p>Máquinas específicas para preparo, nivelamento e compactação de vias e estradas.</p>
+                </div>
+            </div>
+            
+            <!-- Service 7 -->
+            <div class="service-card" data-aos="fade-up" data-aos-delay="700">
+                <div class="service-icon">
+                    <i class="fas fa-people-carry"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Logística Integrada</h3>
+                    <p>Soluções completas de transporte, armazenagem e distribuição para sua obra.</p>
+                </div>
+            </div>
+            
+            <!-- Service 8 -->
+            <div class="service-card" data-aos="fade-up" data-aos-delay="800">
+                <div class="service-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Manutenção Garantida</h3>
+                    <p>Todos os equipamentos passam por manutenção preventiva rigorosa antes de cada locação.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="section testimonials hidden" id="testimonials">
+        <div class="section-title" data-aos="fade-up">
+            <h2><span>Depoimentos</span></h2>
+            <p>O que nossos clientes dizem sobre a qualidade dos nossos serviços</p>
+        </div>
+        
+        <div class="testimonial-slider swiper" data-aos="fade-up">
+            <div class="swiper-wrapper">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-slide swiper-slide">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente 1" class="testimonial-avatar">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">A Jaguar Locadora foi fundamental para o sucesso da nossa obra. Os equipamentos são de primeira qualidade, sempre bem conservados e o atendimento é impecável. Recomendo sem dúvidas para quem busca seriedade e profissionalismo no segmento de locação.</p>
+                    <h4 class="testimonial-author">Carlos Mendes</h4>
+                    <p class="testimonial-company">Construtora Mendes & Filhos</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-slide swiper-slide">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente 2" class="testimonial-avatar">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">Trabalhamos com a Jaguar em vários projetos e sempre superam nossas expectativas. Equipamentos modernos, manutenção impecável e flexibilidade nos prazos de locação. O suporte técnico também é excelente, com orientações precisas sobre a operação dos equipamentos.</p>
+                    <h4 class="testimonial-author">Ana Paula Oliveira</h4>
+                    <p class="testimonial-company">Oliveira Engenharia</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-slide swiper-slide">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Cliente 3" class="testimonial-avatar">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="testimonial-text">O atendimento personalizado e a flexibilidade nos prazos de locação fazem toda diferença. Já indicamos para vários parceiros e todos aprovaram. A frota é diversificada e sempre temos a máquina certa para cada etapa do nosso trabalho. Parabéns à equipe Jaguar!</p>
+                    <h4 class="testimonial-author">Roberto Santos</h4>
+                    <p class="testimonial-company">Santos Transportes</p>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="testimonial-slide swiper-slide">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente 4" class="testimonial-avatar">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">Como gestora de obras, valorizo muito a parceria com a Jaguar Locadora. Eles entendem nossas necessidades e sempre sugerem a melhor solução em equipamentos. A redução de custos com a locação mensal foi significativa para nossa empresa. Recomendo!</p>
+                    <h4 class="testimonial-author">Mariana Costa</h4>
+                    <p class="testimonial-company">Costa & Lima Construções</p>
+                </div>
+                
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-container" data-aos="fade-up">
+            <h2>Pronto para impulsionar seu projeto?</h2>
+            <p>Entre em contato agora mesmo e solicite um orçamento personalizado para suas necessidades de locação.</p>
+            <div class="hero-btns">
+                <a href="https://wa.me/557791334695" class="btn btn-primary" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="#contact" class="btn btn-secondary hidden">
+                    <i class="fas fa-envelope"></i> E-mail
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="section-title" data-aos="fade-up">
+            <h2><span>Contato</span></h2>
+            <p>Entre em contato conosco para mais informações ou solicite um orçamento</p>
+        </div>
+        
+        <div class="contact-container">
+            <div class="contact-info" data-aos="fade-right">
+                <h3>Nossa Localização e Contato</h3>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Endereço</h4>
+                            <p>AV BARÃO DO RIO BRANCO, 1644, BAIRRO SÃO FRANCISCO, GUANAMBI - BAHIA, 46.430-000</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Telefone</h4>
+                            <a href="tel:+557791334695" target="_blank">(77) 9 9133-4695</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>WhatsApp</h4>
+                            <a href="https://wa.me/557791334695" target="_blank">(77) 9 9133-4695</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <a href="mailto:financeiro.jaguarlocadora@gmail.com">financeiro.jaguarlocadora@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Horário de Funcionamento</h4>
+                            <p>Seg-Sex: 08:00 - 18:00<br>Sáb: 08:00 - 12:00</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 style="margin-top: 40px;"hidden>Redes Sociais</h3>
+                <div class="contact-social hidden">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://wa.me/557791334695" class="social-link" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="map-container" data-aos="fade-up">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.295356371238!2d-42.77558892464048!3d-14.22386378974803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x75e9c0b1a5b5b5b5%3A0x5b5b5b5b5b5b5b5b!2sAv.%20Bar%C3%A3o%20do%20Rio%20Branco%2C%201644%20-%20S%C3%A3o%20Francisco%2C%20Guanambi%20-%20BA%2C%2046430-000!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <div class="footer-logo-icon">
+                        <i class="fas fa-truck-monster"></i>
+                    </div>
+                    <div class="footer-logo-text">Jaguar<span>Locadora</span></div>
+                </div>
+                <p>Excelência em locação de máquinas e veículos pesados. Oferecendo soluções completas com tecnologia, segurança e eficiência.</p>
+                <div class="footer-social hidden">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/557791334695" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Início</a></li>
+                    <li><a href="#about"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+                    <li><a href="#fleet"><i class="fas fa-chevron-right"></i> Nossa Frota</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Serviços</a></li>
+                    <li class="hidden"><a href="#testimonials"><i class="fas fa-chevron-right"></i> Depoimentos</a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contato</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Nossos Serviços</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Locação Diária</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Locação Semanal</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Locação Mensal</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Equipamentos para Obras</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Transporte de Cargas</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Logística Integrada</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-newsletter" hidden>
+                <h3>Newsletter</h3>
+                <p>Assine nossa newsletter e receba atualizações sobre novos equipamentos, promoções e dicas para sua obra.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Seu melhor email" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© <span id="current-year">2023</span> - Jaguar Locadora. Todos os direitos reservados. Desenvolvido com <i class="fas fa-heart" style="color: var(--secondary);"></i> por <a href="#" style="color: var(--secondary); text-decoration: none;">Equipe Jaguar</a></p>
+
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/557791334695" class="floating-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Scripts -->
+   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    // Preloader
+    window.addEventListener('load', function() {
+        const preloader = document.getElementById('preloader');
+        setTimeout(function() {
+            preloader.classList.add('fade-out');
+            setTimeout(function() {
+                preloader.style.display = 'none';
+            }, 500);
+        }, 1000);
+    });
+    
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    let mobileMenu = document.getElementById('mobileMenu');
+    let overlay = document.getElementById('overlay');
+
+    if (!mobileMenu) {
+        mobileMenu = document.createElement('div');
+        mobileMenu.className = 'mobile-menu';
+        mobileMenu.id = 'mobileMenu';
+        mobileMenu.innerHTML = `
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#about">Sobre Nós</a></li>
+                <li><a href="#fleet">Frota</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li class="hidden"><a href="#testimonials">Depoimentos</a></li>
+                <li><a href="#contact">Contato</a></li>
+                <li><a href="https://wa.me/557791334695" class="nav-cta">Orçamento <i class="fab fa-whatsapp"></i></a></li>
+            </ul>
+        `;
+        document.body.appendChild(mobileMenu);
+    }
+    
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'overlay';
+        overlay.id = 'overlay';
+        document.body.appendChild(overlay);
+    }
+
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+    
+    mobileMenuClose.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+    
+    overlay.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+    
+    // Smooth Scrolling for Anchor Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            if(this.getAttribute('href') === '#') return;
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if(targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    });
+    
+    // Header Scroll Effect
+    const header = document.getElementById('header');
+    
+    window.addEventListener('scroll', () => {
+        if(window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+    
+    // Back to Top Button
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+        if(window.scrollY > window.innerHeight / 2) {
+            backToTopBtn.classList.add('active');
+        } else {
+            backToTopBtn.classList.remove('active');
+        }
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+// Atraso para o botão flutuante do WhatsApp
+window.addEventListener('load', () => {
+    const floatingWhatsapp = document.querySelector('.floating-whatsapp');
+    if (floatingWhatsapp) {
+        setTimeout(() => {
+            floatingWhatsapp.style.opacity = '1';
+            floatingWhatsapp.style.visibility = 'visible';
+        }, 10000); // 1500ms = 1.5 segundos de atraso (ajuste esse valor conforme preferir)
+    }
+});
+
+    // Fleet Filter
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const vehicleCards = document.querySelectorAll('.vehicle-card');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            const filterValue = button.getAttribute('data-filter');
+            
+            vehicleCards.forEach(card => {
+                if(filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+    
+    // Testimonial Slider
+    const testimonialSlider = new Swiper('.testimonial-slider', {
+        loop: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+    
+    // Animation on Scroll
+    AOS.init({
+        duration: 800,
+        once: true,
+        easing: 'ease-in-out',
+    });
+    
+    // Video Fallback
+    const heroVideo = document.querySelector('.hero-video');
+    if (heroVideo) {
+        heroVideo.addEventListener('error', function() {
+            this.style.display = 'none';
+            document.querySelector('.hero').style.backgroundImage = 'url(https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80)';
+            document.querySelector('.hero').style.backgroundSize = 'cover';
+            document.querySelector('.hero').style.backgroundPosition = 'center';
+        });
+    }
+
+    // Funcionalidade de Compartilhar
+    const shareButtons = document.querySelectorAll('.share-btn');
+
+    shareButtons.forEach(button => {
+        button.addEventListener('click', async () => {
+            const vehicleCard = button.closest('.vehicle-card');
+            let title = "Jaguar Locadora";
+            let text = "Confira este equipamento incrível da Jaguar Locadora!";
+            let url = window.location.href;
+
+            if (vehicleCard) {
+                const vehicleTitleElement = vehicleCard.querySelector('.vehicle-title h3');
+                if (vehicleTitleElement) {
+                    title = `Confira: ${vehicleTitleElement.textContent.trim()} | Jaguar Locadora`;
+                    text = `Estou interessado em alugar o(a) ${vehicleTitleElement.textContent.trim()} da Jaguar Locadora. Acesse e saiba mais:`;
+                }
+            }
+
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: title,
+                        text: text,
+                        url: url,
+                    });
+                    console.log('Conteúdo compartilhado com sucesso!');
+                } catch (error) {
+                    console.error('Erro ao compartilhar:', error);
+                }
+            } else {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(url).then(() => {
+                        alert('Link copiado para a área de transferência!');
+                    }).catch(err => {
+                        console.error('Falha ao copiar o link:', err);
+                        alert('Seu navegador não suporta a função de compartilhamento nativo. Você pode copiar o link: ' + url);
+                    });
+                } else {
+                    alert('Seu navegador não suporta a função de compartilhamento nativo. Você pode copiar o link: ' + url);
+                }
+            }
+        });
+    });
+
+    // Funcionalidade de Curtir (Coração) - ESTE É O BLOCO ÚNICO E CORRETO
+    document.addEventListener('DOMContentLoaded', () => {
+        const heartIcons = document.querySelectorAll('.heart-icon');
+
+        heartIcons.forEach(heartIcon => {
+            const vehicleCard = heartIcon.closest('.vehicle-card');
+            if (!vehicleCard) return;
+
+            // Certifique-se de que cada vehicle-card tenha um data-vehicle-id único
+            const vehicleId = vehicleCard.dataset.vehicleId || vehicleCard.querySelector('.vehicle-title h3')?.textContent.trim();
+
+            if (!vehicleId) {
+                console.warn('Não foi possível encontrar um ID para o veículo. A funcionalidade de curtir pode não persistir.');
+                return;
+            }
+
+            // Verifica o localStorage ao carregar a página para ver se já foi curtido
+            const isLiked = localStorage.getItem(`liked_${vehicleId}`) === 'true';
+            if (isLiked) {
+                heartIcon.classList.add('liked');
+            }
+
+            heartIcon.addEventListener('click', () => {
+                heartIcon.classList.toggle('liked'); // Alterna a classe 'liked'
+
+                // Atualiza o estado no localStorage
+                if (heartIcon.classList.contains('liked')) {
+                    localStorage.setItem(`liked_${vehicleId}`, 'true');
+                } else {
+                    localStorage.removeItem(`liked_${vehicleId}`); // Remove a curtida
+                }
+            });
+        });
+    });
+
+    // Atualiza o ano no rodapé
+document.addEventListener('DOMContentLoaded', function() {
+    const yearSpan = document.getElementById('current-year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+});
+</script>
+</body>
+</html>
