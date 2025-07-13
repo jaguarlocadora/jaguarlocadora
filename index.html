@@ -444,7 +444,7 @@ nav ul li a:hover::after {
         
         .section-title {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 30px;
         }
         
         .section-title h2 {
@@ -589,33 +589,50 @@ nav ul li a:hover::after {
         }
         
         .fleet-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 15px 5%; /* Adaptável ao mobile */
+    margin: 20px 0;
+    box-sizing: border-box; /* Importante para mobile */
+
+            
+
         }
         
         .fleet-filter {
-            display: flex;
-            gap: 10px;
-        }
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza horizontalmente */
+    width: 100%; /* Ocupa toda a largura disponível */
+    margin: 0 auto; /* Centraliza o container */
+    padding: 0 15px; /* Adiciona um pouco de padding nas laterais */
+}
         
         .filter-btn {
-            padding: 12px 25px;
-            background-color: var(--white);
-            border: none;
-            border-radius: 50px;
-            font-family: 'Kanit', sans-serif;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 10px 20px;
+    background: white; /* Fundo branco */
+    border: 1px solid #e0e0e0; /* Bordinha cinza */
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    transition: all 0.3s;
+    color: #333; /* Cor do texto */
+    
         }
         
+        .filter-btn:hover {
+    background: #f8f8f8; /* Cinza bem clarinho ao passar mouse */
+    transform: translateY(-2px);
+}
+
         .filter-btn.active {
-            background: var(--gradient);
-            color: var(--white);
-            box-shadow: 0 10px 20px rgba(255, 46, 46, 0.3);
+            background: linear-gradient(135deg, #FF2E2E 0%, #FF5E14 100%);
+    color: white;
+    border-color: transparent; /* Remove borda quando ativo */
+    box-shadow: 0 5px 15px rgba(255, 46, 46, 0.3);
         }
         
         .fleet-grid {
@@ -773,6 +790,10 @@ nav ul li a:hover::after {
             background: url('https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
             opacity: 0.03;
             z-index: -1;
+                /* PROPRIEDADE ADICIONADA PARA OCULTAR */
+
+                display: none; 
+
         }
         
         .services-container {
@@ -982,6 +1003,9 @@ nav ul li a:hover::after {
             background: url('https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
             opacity: 0.1;
             z-index: 0;
+            /* PROPRIEDADE ADICIONADA PARA OCULTAR */
+
+                display: none; 
         }
         
         .cta-container {
@@ -1386,6 +1410,7 @@ nav ul li a:hover::after {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 20px;
+                
             }
             
             .fleet-filter {
@@ -1664,6 +1689,71 @@ nav ul li a:hover::after {
     display: block; /* Trata o ícone como um bloco para melhor controle de alinhamento */
 }
 
+/* Container principal ajustado */
+.fleet-header-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Barra de pesquisa - versão desktop */
+.search-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+}
+
+.search-wrapper {
+    width: 90%; /* Ocupa 90% da tela */
+    max-width: 600px; /* Máximo de largura */
+    display: flex;
+    margin: 0 auto; /* Centraliza o wrapper */
+}
+
+.search-input {
+    flex: 1;
+    padding: 12px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 30px 0 0 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    transition: all 0.3s;
+}
+
+.search-input:focus {
+    border-color: var(--accent);
+    outline: none;
+}
+
+.search-btn {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    border-radius: 0 30px 30px 0;
+    padding: 0 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+/* Versão mobile */
+@media (max-width: 768px) {
+    .search-container {
+        padding: 0 15px;
+        margin: 10px 0 20px;
+    }
+    
+    .search-input {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    .search-btn {
+        padding: 0 20px;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -1834,23 +1924,32 @@ nav ul li a:hover::after {
     </section>
     
     <!-- Fleet Section -->
-    <section class="section fleet" id="fleet">
-        <div class="section-title" data-aos="fade-up">
-            <h2><span>Nossa Frota</span></h2>
-            <p>Equipamentos modernos e bem conservados para atender todas as necessidades do seu projeto</p>
+<section class="section fleet" id="fleet">
+    <div class="section-title" data-aos="fade-up">
+        <h2><span>Nossa Frota</span></h2>
+        <p>Equipamentos modernos e bem conservados para atender todas as necessidades do seu projeto</p>
+    </div>
+    
+    <!-- Barra de pesquisa -->
+    <div class="search-container">
+        <div class="search-wrapper">
+            <input type="text" id="vehicleSearch" placeholder="Buscar veículo ou equipamento..." 
+                   class="search-input">
+            <button class="search-btn">
+                <i class="fas fa-search"></i>
+            </button>
         </div>
-        
-        <div class="fleet-header" data-aos="fade-up">
-            <h3>Selecione por categoria:</h3>
-            <div class="fleet-filter">
-    <button class="filter-btn active" data-filter="all">Todos</button>
-    <button class="filter-btn" data-filter="passeio">Passeio</button>
-    <button class="filter-btn" data-filter="pickup">Pick-ups</button>
-    <button class="filter-btn" data-filter="caminhao" hidden>Caminhões</button>
-    <button class="filter-btn" data-filter="maquinas" hidden>Máquinas pesadas</button>
-    <button class="filter-btn" data-filter="outros" hidden>Outros</button>
-</div>
+    </div>
+    
+    <div class="fleet-header">
+        <div class="fleet-filter">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="passeio">Passeio</button>
+            <button class="filter-btn" data-filter="picape">Picapes</button>
+            <button class="filter-btn hidden" data-filter="caminhao">Caminhões</button>
+            <button class="filter-btn hidden" data-filter="outros">Outros</button>
         </div>
+    </div>
         
         <div class="fleet-grid">
             <!-- Vehicle 1 -->
@@ -1899,7 +1998,7 @@ nav ul li a:hover::after {
 
             <!-- Vehicle 2 -->
 
-<div class="vehicle-card" data-category="pickup" data-aos="fade-up" data-aos-delay="200" **data-vehicle-id="renault-oroch"**>
+<div class="vehicle-card" data-category="picape" data-aos="fade-up" data-aos-delay="200" **data-vehicle-id="renault-oroch"**>
     <div class="vehicle-badge">Verificar</div>
     <div class="vehicle-media">
         <img src="imagens/veiculos/oroch_renault_2025.jpeg" alt="Oroch">
@@ -1945,14 +2044,14 @@ nav ul li a:hover::after {
             <!-- Vehicle 3 -->
 
 
-<div class="vehicle-card" data-category="pickup" data-aos="fade-up" data-aos-delay="300" **data-vehicle-id="fiat-strada"**>
+<div class="vehicle-card" data-category="picape" data-aos="fade-up" data-aos-delay="300" **data-vehicle-id="fiat-strada"**>
     <div class="vehicle-badge">Verificar</div>
     <div class="vehicle-media">
         <img src="imagens/veiculos/fiat_strada_endurance_2025.jpg" alt="Fiat/Stada">
     </div>
     <div class="vehicle-content">
         <div class="vehicle-title">
-            <h3>Fiat/Strada</h3>
+            <h3>FIAT/STRADA - ENDURANCE</h3>
             <div class="vehicle-price" hidden>R$ 200/dia</div>
         </div>
         <div class="vehicle-specs">
@@ -2035,7 +2134,7 @@ nav ul li a:hover::after {
         </div>
         
         <div class="view-all" data-aos="fade-up">
-            <a href="#fleet" class="btn view-all-btn">Ver Todos os Equipamentos</a>
+    <a href="#fleet" class="btn view-all-btn" id="viewAllEquipmentBtn">Ver Todos os Equipamentos</a>
 
         </div>
     </section>
@@ -2310,7 +2409,7 @@ nav ul li a:hover::after {
     </section>
     
     <!-- Footer -->
-    <footer>
+ <footer>
         <div class="footer-content">
             <div class="footer-about">
                 <div class="footer-logo">
@@ -2556,10 +2655,15 @@ window.addEventListener('load', () => {
     const heroVideo = document.querySelector('.hero-video');
     if (heroVideo) {
         heroVideo.addEventListener('error', function() {
+            // If video fails to load, disable its display
             this.style.display = 'none';
-            document.querySelector('.hero').style.backgroundImage = 'url(https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80)';
-            document.querySelector('.hero').style.backgroundSize = 'cover';
-            document.querySelector('.hero').style.backgroundPosition = 'center';
+            // REMOVA OU COMENTE AS LINHAS DO BACKGROUND IMAGE SE NÃO QUISER NENHUM FALLBACK DE IMAGEM
+            // document.querySelector('.hero').style.backgroundImage = 'url(https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80)';
+            // document.querySelector('.hero').style.backgroundSize = 'cover';
+            // document.querySelector('.hero').style.backgroundPosition = 'center';
+
+            // Opcional: Para ter CERTEZA que não há background, você pode definir como none
+            document.querySelector('.hero').style.backgroundImage = 'none';
         });
     }
 
@@ -2649,6 +2753,85 @@ document.addEventListener('DOMContentLoaded', function() {
         yearSpan.textContent = new Date().getFullYear();
     }
 });
+
+// Funcionalidade do botão "Ver Todos os Equipamentos"
+document.addEventListener('DOMContentLoaded', () => {
+    const viewAllEquipmentBtn = document.getElementById('viewAllEquipmentBtn');
+    const filterAllBtn = document.querySelector('.filter-btn[data-filter="all"]');
+
+    if (viewAllEquipmentBtn && filterAllBtn) {
+        viewAllEquipmentBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Impede o comportamento padrão de rolagem imediata do link
+
+            // Rola suavemente para a seção da frota
+            const fleetSection = document.getElementById('fleet');
+            if (fleetSection) {
+                // A navegação principal já tem um offset de 80px, então usamos o mesmo.
+                const offset = 80; 
+                window.scrollTo({
+                    top: fleetSection.offsetTop - offset,
+                    behavior: 'smooth'
+                });
+            }
+
+            // Simula um clique no botão de filtro "Todos"
+            // Isso vai ativar a classe 'active' e mostrar todos os cards
+            filterAllBtn.click();
+        });
+    }
+});
+
+
+// Função de pesquisa (mantida como estava)
+document.getElementById('vehicleSearch').addEventListener('input', function() {
+    const searchTerms = this.value.toLowerCase().split(' ');
+    const vehicles = document.querySelectorAll('.vehicle-card');
+    
+    vehicles.forEach(vehicle => {
+        const title = vehicle.querySelector('h3').textContent.toLowerCase();
+        const specs = vehicle.querySelector('.vehicle-specs').textContent.toLowerCase();
+        const year = vehicle.querySelector('.spec-item:nth-child(4) span').textContent.toLowerCase();
+        const category = vehicle.getAttribute('data-category');
+        
+        const matchesAll = searchTerms.every(term => 
+            title.includes(term) || 
+            specs.includes(term) || 
+            category.includes(term) || 
+            year.includes(term)
+        );
+        
+        vehicle.style.display = matchesAll ? 'block' : 'none';
+    });
+});
+
+// Função dos filtros ORIGINAL (mantenha esta versão)
+document.querySelectorAll('.filter-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        // Remove a classe active de todos os botões
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        // Adiciona a classe active no botão clicado
+        this.classList.add('active');
+        
+        const filterValue = this.getAttribute('data-filter');
+        const vehicles = document.querySelectorAll('.vehicle-card');
+        
+        vehicles.forEach(vehicle => {
+            if (filterValue === 'all' || vehicle.getAttribute('data-category') === filterValue) {
+                vehicle.style.display = 'block';
+            } else {
+                vehicle.style.display = 'none';
+            }
+        });
+        
+        // Limpa a pesquisa mas mantém o filtro aplicado
+        document.getElementById('vehicleSearch').value = '';
+    });
+});
+
 </script>
+
 </body>
 </html>
