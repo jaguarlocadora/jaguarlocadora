@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Jaguar Locadora | Locação de Veículos e Máquinas Pesadas</title>
-    <meta name="description" content="Soluções completas em locação de veículos e equipamentos pesados. Frota moderna, manutenção garantida e atendimento personalizado.">
+    <title>Jaguar Locadora | Locação de Veículos</title>
+    <meta name="description" content="Soluções completas em locação de veículos. Frota moderna, manutenção garantida e atendimento personalizado.">
     
     <meta property="og:title" content="Jaguar Locadora | Locação de Veículos e Máquinas Pesadas">
-    <meta property="og:description" content="Líder na locação de veículos e máquinas pesadas na Bahia. Frota moderna, atendimento personalizado e o melhor custo-benefício para o seu projeto.">
+    <meta property="og:description" content="Frota moderna, atendimento personalizado e o melhor custo-benefício para o seu projeto.">
     <meta property="og:image" content="https://i.imgur.com/uwSEeIn.png">
     <meta property="og:url" content="https://jaguarlocadora.com">
     <meta property="og:type" content="website">
@@ -646,7 +646,7 @@ nav ul li a:hover::after {
     display: flex;
     justify-content: center;
     padding: 15px 5%; /* Adaptável ao mobile */
-    margin: 20px 0;
+    margin: 0;
     box-sizing: border-box; /* Importante para mobile */
 
             
@@ -698,16 +698,12 @@ nav ul li a:hover::after {
             background-color: var(--white);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            box-shadow: none !important;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
         }
         
-        .vehicle-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
+               
         .vehicle-badge {
             position: absolute;
             top: 20px;
@@ -722,7 +718,7 @@ nav ul li a:hover::after {
         }
         
         .vehicle-media {
-            height: 250px;
+            height: 190px;
             overflow: hidden;
             position: relative;
         }
@@ -1830,7 +1826,229 @@ nav ul li a:hover::after {
     15%, 85% { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
+.vehicle-legend {
+    text-align: center; /* Opcional: centraliza o texto */
+    margin-top: 5px; /* Opcional: adiciona um pequeno espaço acima do texto */
+}
 
+.vehicle-legend p {
+    font-size: 0.8em; /* Diminui o tamanho da fonte */
+    color: #777; /* Opcional: cor do texto mais clara */
+    line-height: 1.3; /* Opcional: ajusta a altura da linha */
+    margin-bottom: 0; /* Remove margem inferior padrão de parágrafos */
+}
+
+.vehicle-media {
+    position: relative; /* Cria um contexto de posicionamento para os elementos internos */
+    overflow: hidden;   /* Garante que a legenda não vaze para fora da imagem */
+}
+
+.image-overlay {
+    position: absolute; /* Permite posicionar a legenda sobre a imagem */
+    bottom: 0px;       /* Distância da parte inferior */
+    left: 10px;         /* Distância da parte esquerda */
+    background-color: transparent; /* Fundo preto semi-transparente */
+    color: #000000;         /* Texto branco */
+    padding: 5px 10px;   /* Espaçamento interno */
+    border-radius: 5px;   /* Bordas levemente arredondadas */
+    font-size: 7px;      /* Tamanho da fonte menor */
+    line-height: 1.2;
+    z-index: 10;         /* Garante que a legenda fique acima da imagem */
+}
+
+.image-overlay p {
+    margin-bottom: 0; /* Remove a margem padrão do parágrafo */
+}
+
+/* ▼▼▼ COLE ESTE NOVO ESTILO PARA O SLIDER ▼▼▼ */
+/* Container principal com espaço para as setas externas */
+.fleet-slider-container {
+    position: relative;
+    /* Padding lateral generoso (ex: 80px) para acomodar as setas */
+    padding: 20px 80px; 
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Aumenta o espaço entre os cards e as bolinhas */
+.fleet-slider-container .swiper-pagination {
+    margin-top: 20px; /* Cria uma margem de 40px acima das bolinhas */
+    position: relative; /* Garante que a margem funcione corretamente */
+    bottom: 0; /* Alinha na parte inferior do espaço */
+}
+/* Estilo para as bolinhas inativas */
+.fleet-slider-container .swiper-pagination-bullet {
+    background-color: var(--accent); /* Usa a cor laranja (--accent) */
+    opacity: 0.3; /* Deixa as inativas com menos opacidade */
+    width: 10px;  /* Aumenta um pouco o tamanho */
+    height: 10px; /* Aumenta um pouco o tamanho */
+    transition: all 0.3s ease;
+}
+
+/* Estilo para a bolinha ATIVA (a que representa o slide atual) */
+.fleet-slider-container .swiper-pagination-bullet-active {
+    opacity: 1; /* Opacidade total para a bolinha ativa */
+    transform: scale(1.2); /* Deixa a bolinha ativa um pouco maior */
+}
+
+/* Estilo para os cards laterais (MENORES) */
+.fleet-slider .swiper-slide {
+    /* Deixa os cards laterais 25% menores */
+    transform: scale(0.75); 
+    
+    /* Garante que eles tenham a cor normal e não pareçam desativados */
+    opacity: 1;
+    filter: none;
+    
+    /* Animação suave para a transição de tamanho */
+    transition: transform 0.5s ease;
+}
+
+/* Estilo para o card central (MAIOR) */
+.fleet-slider .swiper-slide-active {
+    /* Deixa o card central com 100% do seu tamanho, criando um forte contraste */
+    transform: scale(1);
+}
+
+/* Remove o 'scale' do hover, pois o tamanho agora é controlado pelo estado 'active' */
+.vehicle-card:hover {
+    transform: none !important; /* Garante que o card não levante ou aumente */
+    box-shadow: none !important; /* Mantém EXATAMENTE a mesma sombra do estado normal, sem destaque */
+}
+
+
+/* Posicionamento das setas na área externa (no padding) */
+.fleet-slider-container .swiper-button-next,
+.fleet-slider-container .swiper-button-prev {
+    color: var(--accent);       /* Cor do ícone */
+    background: transparent;       /* Fundo transparente por padrão */
+    border: 1px solid #e0e0e0;     /* Borda cinza clara */
+    border-radius: 50%;
+    width: 40px;                   /* Tamanho reduzido */
+    height: 40px;                  /* Tamanho reduzido */
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+    box-shadow: none;              /* Remove a sombra inicial */
+}
+
+/* Efeito ao passar o mouse sobre as setas */
+.fleet-slider-container .swiper-button-next:hover,
+.fleet-slider-container .swiper-button-prev:hover {
+    background: var(--white);
+    color: var(--secondary);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    filter: brightness(1.1); /* Deixa a seta um pouco mais brilhante no hover */
+    transform: translateY(-50%) scale(1.05); /* Efeito de leve crescimento */
+}
+
+/* Tamanho do ícone (a "flecha" em si) */
+.fleet-slider-container .swiper-button-next:after,
+.fleet-slider-container .swiper-button-prev:after {
+    font-size: 16px; /* Ícone menor */
+    font-weight: bold;
+}
+
+/* Posição das setas (fora da área dos cards) */
+.fleet-slider-container .swiper-button-prev {
+    left: 20px; 
+}
+
+.fleet-slider-container .swiper-button-next {
+    right: 20px; 
+}
+
+/* 1. SEÇÃO DA FROTA: Removemos o padding lateral para que o carrossel
+   possa usar todo o espaço necessário para as sombras e efeitos. */
+section.fleet {
+    padding-left: 0;
+    padding-right: 0;
+    overflow-x: hidden; /* Previne barras de rolagem indesejadas */
+}
+
+/* 2. CONTEÚDO DA SEÇÃO: Devolvemos o padding ao título e filtros
+   para que eles continuem alinhados com o resto do site. */
+.fleet .section-title,
+.fleet .fleet-header {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+/* 3. Uma sombra suave e bonita para o card, que agora não será mais cortada. */
+.vehicle-card:hover {
+    transform: translateY(-10px); /* Mantivemos o efeito de elevação */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Estilo base do botão: menor e com sombra discreta */
+.no-results-message .btn {
+    padding: 10px 25px; /* Diminui o espaçamento interno */
+    font-size: 14px;    /* Diminui o tamanho da fonte */
+    box-shadow: 0 4px 15px rgba(255, 46, 46, 0.2); /* Sombra mais sutil */
+}
+
+/* Efeito de hover mais suave para este botão específico */
+.no-results-message .btn:hover {
+    box-shadow: 0 6px 20px rgba(255, 46, 46, 0.3); /* Sombra de hover também mais discreta */
+    transform: translateY(-2px); /* Efeito de elevação menor */
+}
+/* Define uma sombra mais sutil para o estado normal dos botões nos cards. */
+.vehicle-card .btn-primary {
+    box-shadow: 0 4px 15px rgba(255, 46, 46, 0.25);
+}
+
+/* Define também uma sombra de hover mais suave para estes botões específicos. */
+.vehicle-card .btn-primary:hover {
+    box-shadow: 0 7px 18px rgba(255, 46, 46, 0.3);
+}
+
+/* 1. Força os slides na mesma linha a esticarem para ter a mesma altura */
+.fleet-slider .swiper-wrapper {
+    align-items: stretch !important;
+}
+
+/* 2. Faz o card ser flexível e ocupar toda a altura do slide */
+.vehicle-card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+/* 3. Faz a área de conteúdo (texto) crescer para ocupar o espaço vago */
+.vehicle-content {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important; 
+}
+
+/* 4. Empurra o rodapé do card para o fundo, alinhando todos os botões */
+.vehicle-footer {
+    margin-top: auto !important;
+}
+/* Estilos para a notificação "Copiado!" */
+.copy-toast {
+    position: fixed;
+    bottom: 40px; /* Posição na tela */
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary); /* Usa a cor primária do seu site */
+    color: var(--white);
+    padding: 12px 24px;
+    border-radius: 30px;
+    z-index: 10001; /* Garante que fique acima de outros elementos */
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none; /* A mensagem não pode ser clicada */
+    font-family: 'Kanit', sans-serif;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+    white-space: nowrap;
+}
+
+/* Animação para mostrar a notificação */
+.copy-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-10px); /* Move para cima ao aparecer */
+}
 
     </style>
 </head>
@@ -1891,7 +2109,7 @@ nav ul li a:hover::after {
         <div class="hero-content">
             <div class="hero-text" data-aos="fade-up" data-aos-duration="1000">
                 <h1>Potência em <span>movimento</span>. Confiança em cada <span>locação</span>.</h1>
-                <p>Soluções completas em locação de veículos e máquinas pesadas para construção, transporte e logística. Tecnologia, segurança e eficiência para o seu projeto.</p>
+                <p>Soluções completas em locação de veículos para passeio, trabalho, obras e logística. Tecnologia, segurança e eficiência para o seu projeto.</p>
                 <div class="hero-btns">
                     <a href="https://wa.me/557791334695" class="btn btn-primary" target="_blank">
                         <i class="fab fa-whatsapp"></i> Fale no WhatsApp
@@ -1934,17 +2152,19 @@ nav ul li a:hover::after {
         
         <!-- Floating Elements -->
         <div class="floating-elements">
-            <div class="floating-element" style="width: 300px; height: 300px; top: 10%; left: 5%; animation-delay: 0s;"></div>
-            <div class="floating-element" style="width: 200px; height: 200px; bottom: 15%; right: 10%; animation-delay: 2s;"></div>
-            <div class="floating-element" style="width: 150px; height: 150px; top: 40%; right: 20%; animation-delay: 4s;"></div>
-        </div>
+    <div class="floating-element" style="width: 300px; height: 300px; top: 16%; left: 2%; ..."></div>
+    
+    <div class="floating-element" style="width: 200px; height: 200px; top: 70%; right: 10%; ..."></div>
+
+    <div class="floating-element" style="width: 150px; height: 150px; top: 50%; right: 20%; ..."></div>
+</div>
     </section>
     
     <!-- About Section -->
     <section class="section about hidden" id="about">
         <div class="section-title" data-aos="fade-up">
             <h2><span>Sobre Nós</span></h2>
-            <p>Conheça a Jaguar Locadora e descubra por que somos referência em locação de máquinas e veículos na Bahia</p>
+            <p>Conheça a Jaguar Locadora e descubra por que somos referência em locação de veículos na Bahia</p>
         </div>
         
         <div class="about-container hidden">
@@ -1955,8 +2175,8 @@ nav ul li a:hover::after {
                 </div>
             </div>
             <div class="about-content" data-aos="fade-left">
-    <h3>Excelência em locação de veículos e equipamentos pesados</h3>
-    <p class="main-about-text">Jaguar Locadora surgiu com o propósito de oferecer soluções completas e personalizadas em locação de máquinas e veículos para construção civil, transporte e logística na região de Guanambi e toda Bahia.</p>
+    <h3>Excelência em locação de veículos</h3>
+    <p class="main-about-text">Jaguar Locadora surgiu com o propósito de oferecer soluções completas e personalizadas em locação de veículos para construção civil, transporte e logística na região de Guanambi e toda Bahia.</p>
     <p class="main-about-text">Nosso diferencial está no atendimento personalizado, frota moderna e manutenção preventiva rigorosa, garantindo segurança e eficiência em todas as etapas do seu projeto.</p>
     
                 <div class="about-features">
@@ -2005,226 +2225,211 @@ nav ul li a:hover::after {
 <section class="section fleet" id="fleet">
     <div class="section-title" data-aos="fade-up">
         <h2><span>Nossa Frota</span></h2>
-        <p>Equipamentos modernos e bem conservados para atender todas as necessidades do seu projeto</p>
+        <p>Equipamentos modernos e bem conservados para atender seu projeto.</p>
+    </div>
+
+    <div class="search-container" data-aos="fade-up" data-aos-delay="100">
+        <div class="search-wrapper">
+            <input type="text" id="vehicleSearch" placeholder="Buscar veículo..." class="search-input">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+
+    <div class="fleet-header" data-aos="fade-up" data-aos-delay="200">
+        <div class="fleet-filter">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="passeio">Passeio</button>
+            <button class="filter-btn" data-filter="picape">Picape/Caminhonete</button>
+        </div>
     </div>
     
-    <!-- Na barra de pesquisa -->
-<div class="search-container" data-aos="fade-up" data-aos-delay="100">
-    <div class="search-wrapper">
-        <input type="text" id="vehicleSearch" placeholder="Buscar veículo ou equipamento..." 
-               class="search-input">
-        <button class="search-btn">
-            <i class="fas fa-search"></i>
-        </button>
+    <div class="no-results-message" style="display: none; text-align: center; padding: 40px; background: #f8f8f8; border-radius: 10px; margin: 20px 0;">
+        <i class="fas fa-search" style="font-size: 48px; color: #ccc; margin-bottom: 15px;"></i>
+        <h3 style="color: #333;">Nenhum veículo encontrado</h3>
+        <p style="color: #666;">Não encontramos resultados para sua pesquisa. Tente outros termos.</p>
+        <button class="btn btn-primary" style="margin-top: 15px;"><i class="fas fa-undo"></i> Limpar pesquisa</button>
     </div>
-</div>
 
-<!-- Nos botões de filtro -->
-<div class="fleet-header" data-aos="fade-up" data-aos-delay="200">
-    <div class="fleet-filter">
-        <button class="filter-btn active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="passeio">Passeio</button>
-        <button class="filter-btn" data-filter="picape">Picapes</button>
-        <button class="filter-btn hidden" data-filter="caminhao">Caminhões</button>
-        <button class="filter-btn hidden" data-filter="outros">Outros</button>
-    </div>
-</div>
+    <div class="fleet-slider-container">
+        <div class="swiper fleet-slider">
+            <div class="swiper-wrapper">
 
-<div class="no-results-message" style="display: none; text-align: center; padding: 40px; background: #f8f8f8; border-radius: 10px; margin: 20px 0;">
-    <i class="fas fa-search" style="font-size: 48px; color: #ccc; margin-bottom: 15px;"></i>
-    <h3 style="color: #333;">Nenhum veículo encontrado</h3>
-    <p style="color: #666;">Não encontramos resultados para sua pesquisa. Tente outros termos.</p>
-    <button class="btn btn-primary" onclick="resetSearch()" style="margin-top: 15px;">
-        <i class="fas fa-undo"></i> Limpar pesquisa
-    </button>
-</div>
-        
-        <div class="fleet-grid">
-            <!-- Vehicle 1 -->
-            <div class="vehicle-card" id="veiculo-1" data-category="passeio" data-aos="fade-up" data-aos-delay="100" **data-vehicle-id="renault-duster"**>
-    <div class="vehicle-badge">Verificar</div>
-    <div class="vehicle-media">
-        <img src="imagens/veiculos/duster_renault_2025.jpeg" alt="Caminhão Truck">
-    </div>
-    <div class="vehicle-content">
-        <div class="vehicle-title">
-            <h3>RENAULT/DUSTER</h3>
-            <div class="vehicle-price" hidden>R$ 350/dia</div>
-        </div>
-        <div class="vehicle-specs">
-            <div class="spec-item">
-                <i class="fas fa-gas-pump"></i>
-                <span>Flex</span>
-            </div>
-            <div class="spec-item">
-                <i class="fas fa-tachometer-alt"></i>
-                <span>142CV</span>
-            </div>
-            <div class="spec-item">
-                <i class="fas fa-car"></i>
-                <span>4x2</span>
-            </div>
-            <div class="spec-item">
-                <i class="fas fa-calendar-alt"></i>
-                <span>2013/2014</span>
-            </div>
-        </div>
-        <div class="vehicle-footer">
-            <a href="https://wa.me/557791334695" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;" target="_blank">
-                <i class="fab fa-whatsapp"></i> Alugar
-            </a>
-            <div class="vehicle-action">
-                <button class="action-btn">
-                    <i class="far fa-heart heart-icon"></i> </button>
-                <button class="action-btn share-btn">
-                    <i class="fas fa-share-alt"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-            <!-- Vehicle 2 -->
-
-<div class="vehicle-card" id="veiculo-2" data-category="picape" data-aos="fade-up" data-aos-delay="200" **data-vehicle-id="renault-oroch"**>
-    <div class="vehicle-badge">Verificar</div>
-    <div class="vehicle-media">
-        <img src="imagens/veiculos/oroch_renault_2025.jpeg" alt="Oroch">
-    </div>
-    <div class="vehicle-content">
-        <div class="vehicle-title">
-            <h3>RENAULT/OROCH</h3>
-            <div class="vehicle-price" hidden>R$ 800/dia</div>
-        </div>
-        <div class="vehicle-specs">
-            <div class="spec-item">
-                <i class="fas fa-gas-pump"></i>
-                <span>Flex</span>
-            </div>
-            <div class="spec-item">
-                <i class="fas fa-tachometer-alt"></i>
-                <span>120CV</span>
-            </div>
-            <div class="spec-item">
-                <i class="fas fa-car"></i>
-                <span>Cabine Dupla</span>
-            </div>
-            <div class="spec-item">
-                <i class="fas fa-calendar-alt"></i>
-                <span>2022</span>
-            </div>
-        </div>
-        <div class="vehicle-footer">
-            <a href="https://wa.me/557791334695" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;" target="_blank">
-                <i class="fab fa-whatsapp"></i> Alugar
-            </a>
-            <div class="vehicle-action">
-                <button class="action-btn">
-                    <i class="far fa-heart heart-icon"></i> </button>
-                <button class="action-btn share-btn">
-                    <i class="fas fa-share-alt"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-            <!-- Vehicle 3 -->
-
-
-<div class="vehicle-card" id="veiculo-3" data-category="picape" data-aos="fade-up" data-aos-delay="300" **data-vehicle-id="fiat-strada"**>
-    <div class="vehicle-badge">Verificar</div>
-    <div class="vehicle-media">
-        <img src="imagens/veiculos/fiat_strada_endurance_2025.jpg" alt="Fiat/Stada">
-    </div>
-    <div class="vehicle-content">
-        <div class="vehicle-title">
-            <h3>FIAT/STRADA - ENDURANCE</h3>
-            <div class="vehicle-price" hidden>R$ 200/dia</div>
-        </div>
-        <div class="vehicle-specs">
-            <div class="spec-item">
-                <i class="fas fa-gas-pump"></i>
-                <span>Flex</span>
-            </div>
-            <div class="spec-item">
-                <i class="fas fa-tachometer-alt"></i>
-                <span>85CV</span>
-            </div>
-            <div class="spec-item">
-                <i class="fas fa-car"></i>
-                <span>Cabine Simples</span>
-            </div>
-            <div class="spec-item">
-                <i class="fas fa-calendar-alt"></i>
-                <span>2022/2023</span>
-            </div>
-        </div>
-        <div class="vehicle-footer">
-            <a href="https://wa.me/557791334695" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;" target="_blank">
-                <i class="fab fa-whatsapp"></i> Alugar
-            </a>
-            <div class="vehicle-action">
-                <button class="action-btn">
-                    <i class="far fa-heart heart-icon"></i> </button>
-                <button class="action-btn share-btn">
-                    <i class="fas fa-share-alt"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-            
-            <!-- Vehicle 4 -->
-            <div class="vehicle-card hidden" id="veiculo-4" data-category="outros" data-aos="fade-up" data-aos-delay="600">
-                <div class="vehicle-badge">Verificar</div>
-                <div class="vehicle-media">
-                    <img src="https://images.unsplash.com/photo-1631792973029-8a9b8c8c9c7f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Rolo Compactador">
-                </div>
-                <div class="vehicle-content">
-                    <div class="vehicle-title">
-                        <h3>Rolo Compactador</h3>
-                        <div class="vehicle-price">R$ 500/dia</div>
-                    </div>
-                    <div class="vehicle-specs">
-                        <div class="spec-item">
-                            <i class="fas fa-gas-pump"></i>
-                            <span>Diesel</span>
+                <div class="swiper-slide" data-category="passeio" data-aos="fade-up" data-aos-delay="100">
+                    <div class="vehicle-card" id="veiculo-1" data-vehicle-id="renault-duster">
+                        <div class="vehicle-badge">Reserve</div>
+                        <div class="vehicle-media">
+                            <img src="imagens/veiculos/duster_renault_2025.jpeg" alt="Renault Duster">
+                            <div class="image-overlay"><p>Imagem ilustrativa<br>Reprodução: Renault</p></div>
                         </div>
-                        <div class="spec-item">
-                            <i class="fas fa-weight"></i>
-                            <span>10 ton</span>
-                        </div>
-                        <div class="spec-item">
-                            <i class="fas fa-ruler-horizontal"></i>
-                            <span>2m largura</span>
-                        </div>
-                        <div class="spec-item">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>2019</span>
-                        </div>
-                    </div>
-                    <div class="vehicle-footer">
-                        <a href="https://wa.me/557791334695" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Alugar
-                        </a>
-                        <div class="vehicle-action">
-                            <button class="action-btn">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn">
-                                <i class="fas fa-share-alt"></i>
-                            </button>
+                        <div class="vehicle-content">
+                            <div class="vehicle-title"><h3>RENAULT/DUSTER</h3></div>
+                            <div class="vehicle-specs">
+                                <div class="spec-item"><i class="fas fa-gas-pump"></i><span>Flex</span></div>
+                                <div class="spec-item"><i class="fas fa-calendar-alt"></i><span>2014</span></div>
+                                <div class="spec-item"><i class="fas fa-cogs"></i><span>Automático</span></div>
+                                <div class="spec-item"><i class="fas fa-snowflake"></i><span>Ar-condicionado</span></div>
+                                
+                            </div>
+                            <div class="vehicle-footer">
+                                <a href="https://wa.me/557791334695" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;" target="_blank"><i class="fab fa-whatsapp"></i>Orçamento</a>
+                                <div class="vehicle-action"><button class="action-btn share-btn"><i class="fas fa-share-alt"></i></button></div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="swiper-slide" data-category="picape" data-aos="fade-up" data-aos-delay="100">
+                    <div class="vehicle-card" id="veiculo-2" data-vehicle-id="renault-oroch">
+                       <div class="vehicle-badge">Reserve</div>
+                       <div class="vehicle-media">
+                           <img src="imagens/veiculos/oroch_renault_2025.jpeg" alt="Renault Oroch">
+                           <div class="image-overlay"><p>Imagem ilustrativa<br>Reprodução: Renault</p></div>
+                       </div>
+                       <div class="vehicle-content">
+                           <div class="vehicle-title"><h3>RENAULT/OROCH</h3></div>
+                           <div class="vehicle-specs">
+                               <div class="spec-item"><i class="fas fa-gas-pump"></i><span>Flex</span></div>
+                               <div class="spec-item"><i class="fas fa-calendar-alt"></i><span>2022</span></div>
+                               <div class="spec-item"><i class="fas fa-cogs"></i><span>Manual</span></div>
+                               <div class="spec-item"><i class="fas fa-car"></i><span>Cabine Dupla</span></div>
+                               
+                           </div>
+                           <div class="vehicle-footer">
+                               <a href="https://wa.me/557791334695" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;" target="_blank"><i class="fab fa-whatsapp"></i>Orçamento</a>
+                               <div class="vehicle-action"><button class="action-btn share-btn"><i class="fas fa-share-alt"></i></button></div>
+                           </div>
+                       </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide" data-category="picape" data-aos="fade-up" data-aos-delay="100">
+                    <div class="vehicle-card" id="veiculo-3" data-vehicle-id="fiat-strada">
+                         <div class="vehicle-badge">Reserve</div>
+                         <div class="vehicle-media">
+                             <img src="imagens/veiculos/fiat_strada_endurance_2025.jpg" alt="Fiat Strada">
+                             <div class="image-overlay"><p>Imagem ilustrativa<br>Reprodução: Fiat</p></div>
+                         </div>
+                         <div class="vehicle-content">
+                             <div class="vehicle-title"><h3>FIAT/STRADA</h3></div>
+                             <div class="vehicle-specs">
+                                 <div class="spec-item"><i class="fas fa-gas-pump"></i><span>Flex</span></div>
+                                 <div class="spec-item"><i class="fas fa-calendar-alt"></i><span>2023</span></div>
+                                 <div class="spec-item"><i class="fas fa-cogs"></i><span>Manual</span></div>
+                                 <div class="spec-item"><i class="fas fa-car"></i><span>Cabine Simples</span></div>
+                                 
+                             </div>
+                             <div class="vehicle-footer">
+                                 <a href="https://wa.me/557791334695" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;" target="_blank"><i class="fab fa-whatsapp"></i>Orçamento</a>
+                                 <div class="vehicle-action"><button class="action-btn share-btn"><i class="fas fa-share-alt"></i></button></div>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+                
+                <div class="swiper-slide" data-category="passeio" data-aos="fade-up" data-aos-delay="100">
+                    <div class="vehicle-card" id="veiculo-4" data-vehicle-id="hyundai-hb20">
+                        <div class="vehicle-badge">Reserve</div>
+                        <div class="vehicle-media">
+                            <img src="imagens/veiculos/hyundai_hb20_2025.jpg" alt="Hyundai HB20"> <div class="image-overlay"><p>Imagem ilustrativa<br>Reprodução: Hyundai</p></div>
+                        </div>
+                        <div class="vehicle-content">
+                            <div class="vehicle-title"><h3>HYUNDAI/HB20</h3></div>
+                            <div class="vehicle-specs">
+                                <div class="spec-item"><i class="fas fa-gas-pump"></i><span>Flex</span></div>
+                                <div class="spec-item"><i class="fas fa-calendar-alt"></i><span>2022</span></div>
+                                <div class="spec-item"><i class="fas fa-cogs"></i><span>Automático</span></div>
+                                <div class="spec-item"><i class="fas fa-snowflake"></i><span>Ar-condicionado</span></div>
+                                
+                            </div>
+                            <div class="vehicle-footer">
+                                <a href="https://wa.me/557791334695" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;" target="_blank"><i class="fab fa-whatsapp"></i>Orçamento</a>
+                                <div class="vehicle-action"><button class="action-btn share-btn"><i class="fas fa-share-alt"></i></button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide" data-category="picape" data-aos="fade-up" data-aos-delay="100">
+                    <div class="vehicle-card" id="veiculo-5" data-vehicle-id="toyota-hilux">
+                        <div class="vehicle-badge">Reserve</div>
+                        <div class="vehicle-media">
+                            <img src="imagens/veiculos/toyota_hilux_2025.jpg" alt="Toyota Hilux"> <div class="image-overlay"><p>Imagem ilustrativa<br>Reprodução: Toyota</p></div>
+                        </div>
+                        <div class="vehicle-content">
+                            <div class="vehicle-title"><h3>TOYOTA/HILUX</h3></div>
+                            <div class="vehicle-specs">
+                                <div class="spec-item"><i class="fas fa-gas-pump"></i><span>D-S10</span></div>
+                                <div class="spec-item"><i class="fas fa-calendar-alt"></i><span>2017</span></div>
+                                <div class="spec-item"><i class="fas fa-cogs"></i><span>Automático</span></div>
+                                <div class="spec-item"><i class="fas fa-snowflake"></i><span>Ar-condicionado</span></div>
+                                
+                            </div>
+                            <div class="vehicle-footer">
+                                <a href="https://wa.me/557791334695" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;" target="_blank"><i class="fab fa-whatsapp"></i>Orçamento</a>
+                                <div class="vehicle-action"><button class="action-btn share-btn"><i class="fas fa-share-alt"></i></button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide" data-category="picape" data-aos="fade-up" data-aos-delay="100">
+                    <div class="vehicle-card" id="veiculo-6" data-vehicle-id="ford-ranger">
+                        <div class="vehicle-badge">Reserve</div>
+                        <div class="vehicle-media">
+                            <img src="imagens/veiculos/ford_ranger.jpg" alt="Ford Ranger"> <div class="image-overlay"><p>Imagem ilustrativa<br>Reprodução: Ford</p></div>
+                        </div>
+                        <div class="vehicle-content">
+                            <div class="vehicle-title"><h3>FORD/RANGER</h3></div>
+                            <div class="vehicle-specs">
+                                <div class="spec-item"><i class="fas fa-gas-pump"></i><span>Diesel</span></div>
+                                <div class="spec-item"><i class="fas fa-calendar-alt"></i><span>2022</span></div>
+                                <div class="spec-item"><i class="fas fa-cogs"></i><span>Manual</span></div>
+                                <div class="spec-item"><i class="fas fa-snowflake"></i><span>Ar-condicionado</span></div>
+                                
+                            </div>
+                            <div class="vehicle-footer">
+                                <a href="https://wa.me/557791334695" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;" target="_blank"><i class="fab fa-whatsapp"></i>Orçamento</a>
+                                <div class="vehicle-action"><button class="action-btn share-btn"><i class="fas fa-share-alt"></i></button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="swiper-slide" data-category="passeio" data-aos="fade-up" data-aos-delay="100">
+                    <div class="vehicle-card" id="veiculo-7" data-vehicle-id="vw-voyage">
+                        <div class="vehicle-badge">Reserve</div>
+                        <div class="vehicle-media">
+                            <img src="imagens/veiculos/volks_voyage.jpg" alt="Volkswagen Voyage"> <div class="image-overlay"><p>Imagem ilustrativa<br>Reprodução: Volkswagen</p></div>
+                        </div>
+                        <div class="vehicle-content">
+                            <div class="vehicle-title"><h3>VOLKSWAGEN/VOYAGE</h3></div>
+                            <div class="vehicle-specs">
+                                <div class="spec-item"><i class="fas fa-gas-pump"></i><span>Flex</span></div>
+                                <div class="spec-item"><i class="fas fa-calendar-alt"></i><span>2023</span></div>
+                                <div class="spec-item"><i class="fas fa-cogs"></i><span>Manual</span></div>
+                                <div class="spec-item"><i class="fas fa-snowflake"></i><span>Ar-condicionado</span></div>
+                                
+                            </div>
+                            <div class="vehicle-footer">
+                                <a href="https://wa.me/557791334695" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;" target="_blank"><i class="fab fa-whatsapp"></i>Orçamento</a>
+                                <div class="vehicle-action"><button class="action-btn share-btn"><i class="fas fa-share-alt"></i></button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-        
-        <div class="view-all" data-aos="fade-up">
-    <a href="#fleet" class="btn view-all-btn" id="viewAllEquipmentBtn">Ver Todos os Equipamentos</a>
-
-        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+    </div>
+</section>
+    
+    <div class="view-all hidden" data-aos="fade-up">
+        <a href="#fleet" class="btn view-all-btn" id="viewAllEquipmentBtn">Ver Todos os Equipamentos</a>
+    </div>
     </section>
     
     <!-- Services Section -->
@@ -2506,7 +2711,7 @@ nav ul li a:hover::after {
                     </div>
                     <div class="footer-logo-text">Jaguar<span>Locadora</span></div>
                 </div>
-                <p>Excelência em locação de veículos e máquinas pesadas. Oferecendo soluções completas com tecnologia, segurança e eficiência.</p>
+                <p>Excelência em locação de veículos. Oferecendo soluções completas com tecnologia, segurança e eficiência.</p>
                 <div class="footer-social hidden">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
@@ -2568,464 +2773,201 @@ nav ul li a:hover::after {
     </a>
     
     <!-- Scripts -->
-   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    // Preloader
-    window.addEventListener('load', function() {
-        const preloader = document.getElementById('preloader');
-        setTimeout(function() {
-            preloader.classList.add('fade-out');
-            setTimeout(function() {
-                preloader.style.display = 'none';
-            }, 500);
-        }, 1000);
-    });
+// --- EVENTO PRINCIPAL: DOMContentLoaded ---
+document.addEventListener('DOMContentLoaded', function() {
 
-    
-    
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    let mobileMenu = document.getElementById('mobileMenu');
-    let overlay = document.getElementById('overlay');
-
-    if (!mobileMenu) {
-        mobileMenu = document.createElement('div');
-        mobileMenu.className = 'mobile-menu';
-        mobileMenu.id = 'mobileMenu';
-        mobileMenu.innerHTML = `
-            <button class="mobile-menu-close" id="mobileMenuClose">
-                <i class="fas fa-times"></i>
-            </button>
-            <ul>
-                <li><a href="#home">Início</a></li>
-                <li><a href="#about">Sobre Nós</a></li>
-                <li><a href="#fleet">Frota</a></li>
-                <li><a href="#services">Serviços</a></li>
-                <li class="hidden"><a href="#testimonials">Depoimentos</a></li>
-                <li><a href="#contact">Contato</a></li>
-                <li><a href="https://wa.me/557791334695" class="nav-cta">Orçamento <i class="fab fa-whatsapp"></i></a></li>
-            </ul>
-        `;
-        document.body.appendChild(mobileMenu);
-    }
-    
-    if (!overlay) {
-        overlay = document.createElement('div');
-        overlay.className = 'overlay';
-        overlay.id = 'overlay';
-        document.body.appendChild(overlay);
+    // --- FUNÇÕES AUXILIARES ---
+    function showCopyToast(message) {
+        const existingToast = document.querySelector('.copy-toast');
+        if (existingToast) { existingToast.remove(); }
+        const toast = document.createElement('div');
+        toast.textContent = message;
+        toast.className = 'copy-toast';
+        document.body.appendChild(toast);
+        setTimeout(() => toast.classList.add('show'), 10);
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => { if (toast.parentElement) toast.parentElement.removeChild(toast); }, 400);
+        }, 2000);
     }
 
-    const mobileMenuClose = document.getElementById('mobileMenuClose');
-
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.add('active');
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    });
-    
-    mobileMenuClose.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-    });
-    
-    overlay.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-    });
-    
-    // Smooth Scrolling for Anchor Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            if(this.getAttribute('href') === '#') return;
-            
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if(targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-                
-                mobileMenu.classList.remove('active');
-                overlay.classList.remove('active');
-                document.body.style.overflow = '';
+    async function copyTextToClipboard(textToCopy) {
+        try {
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(textToCopy);
+                return true;
             }
+        } catch (err) {
+            console.warn('Falha na API Clipboard. Usando método antigo.', err);
+        }
+        const textArea = document.createElement("textarea");
+        textArea.value = textToCopy;
+        textArea.style.position = "absolute";
+        textArea.style.left = "-9999px";
+        textArea.setAttribute("readonly", "");
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+            const successful = document.execCommand('copy');
+            document.body.removeChild(textArea);
+            return successful;
+        } catch (err) {
+            console.error('Falha no execCommand para copiar.', err);
+            document.body.removeChild(textArea);
+            return false;
+        }
+    }
+
+    // --- INICIALIZAÇÕES DE BIBLIOTECAS ---
+    AOS.init({ duration: 800, once: true, easing: 'ease-out-quad' });
+
+    new Swiper('.testimonial-slider', {
+        loop: true,
+        autoplay: { delay: 5000, disableOnInteraction: false },
+        pagination: { el: '.testimonial-slider .swiper-pagination', clickable: true },
+    });
+
+    const fleetSlider = new Swiper('.fleet-slider', {
+        effect: 'slide', loop: true, centeredSlides: true, slidesPerView: 'auto', slidesPerGroup: 1, spaceBetween: 20,
+        navigation: { nextEl: '.fleet-slider-container .swiper-button-next', prevEl: '.fleet-slider-container .swiper-button-prev' },
+        pagination: { el: '.fleet-slider-container .swiper-pagination', clickable: true },
+        breakpoints: { 768: { slidesPerView: 2, spaceBetween: 30 }, 1024: { slidesPerView: 3, spaceBetween: 40 } },
+        on: { init: function() { setTimeout(() => AOS.refresh(), 300); }, slideChangeTransitionEnd: function() { AOS.refresh(); } }
+    });
+
+    // --- LÓGICA DE FILTRO E PESQUISA ---
+    const searchInput = document.getElementById('vehicleSearch');
+    const searchButton = document.querySelector('.search-btn');
+    const filterButtons = document.querySelectorAll('.fleet-filter .filter-btn');
+    const noResultsMessage = document.querySelector('.no-results-message');
+    const fleetSliderContainer = document.querySelector('.fleet-slider-container');
+    const resetButton = document.querySelector('.no-results-message .btn-primary');
+    const originalSlidesHTML = Array.from(document.querySelectorAll('.fleet-slider .swiper-slide:not(.swiper-slide-duplicate)')).map(slide => slide.outerHTML);
+
+    function updateFleetView() {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        const activeCategory = document.querySelector('.fleet-filter .filter-btn.active').dataset.filter;
+        const filteredSlides = originalSlidesHTML.filter(slideHTML => {
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = slideHTML;
+            const slideElement = tempDiv.firstElementChild;
+            const vehicleName = slideElement.querySelector('h3').textContent.toLowerCase();
+            const vehicleCategory = slideElement.dataset.category;
+            const categoryMatch = (activeCategory === 'all' || vehicleCategory === activeCategory);
+            const searchMatch = vehicleName.includes(searchTerm);
+            return categoryMatch && searchMatch;
+        });
+        fleetSlider.removeAllSlides();
+        if (filteredSlides.length > 0) {
+            fleetSlider.appendSlide(filteredSlides);
+            fleetSliderContainer.style.display = 'block';
+            noResultsMessage.style.display = 'none';
+        } else {
+            fleetSliderContainer.style.display = 'none';
+            noResultsMessage.style.display = 'block';
+        }
+        fleetSlider.update();
+        AOS.refresh();
+    }
+
+    function resetSearch() {
+        searchInput.value = '';
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+        updateFleetView();
+    }
+    
+    searchInput.addEventListener('keyup', updateFleetView);
+    searchButton.addEventListener('click', (e) => { e.preventDefault(); updateFleetView(); });
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            updateFleetView();
         });
     });
+    resetButton.addEventListener('click', resetSearch);
     
-    // Header Scroll Effect
-    const header = document.getElementById('header');
+    // --- LÓGICA DO MENU MOBILE ---
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('overlay');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+    const openMenu = () => { mobileMenu.classList.add('active'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; };
+    const closeMenu = () => { mobileMenu.classList.remove('active'); overlay.classList.remove('active'); document.body.style.overflow = ''; };
+    mobileMenuBtn?.addEventListener('click', openMenu);
+    mobileMenuClose?.addEventListener('click', closeMenu);
+    overlay?.addEventListener('click', closeMenu);
+    document.querySelectorAll('.mobile-menu a').forEach(link => link.addEventListener('click', closeMenu));
     
-    window.addEventListener('scroll', () => {
-        if(window.scrollY > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
+    // --- EVENT LISTENER DE CLIQUE PRINCIPAL ---
+    document.addEventListener('click', async function(event) {
+        if (event.target.closest('.share-btn')) {
+            event.preventDefault();
+            const vehicleCard = event.target.closest('.vehicle-card');
+            if (!vehicleCard) return;
+
+            const vehicleTitle = vehicleCard.querySelector('h3').textContent.trim();
+            const specNodes = vehicleCard.querySelectorAll('.vehicle-specs .spec-item span');
+            const vehicleId = vehicleCard.id;
+            const specsText = Array.from(specNodes).map(span => span.textContent.trim()).join(' • ');
+
+            // ▼▼▼ ALTERAÇÃO PRINCIPAL AQUI ▼▼▼
+            // Pega a URL base da meta tag 'og:url' para usar o link de produção.
+            const siteUrlMeta = document.querySelector('meta[property="og:url"]');
+            // Se a tag não for encontrada, usa a URL principal como um fallback seguro.
+            const baseUrl = siteUrlMeta ? siteUrlMeta.getAttribute('content') : 'https://jaguarlocadora.com';
+            // Monta a URL final, garantindo que não haja barras duplas (//).
+            const vehicleUrl = `${baseUrl.replace(/\/$/, '')}/#${vehicleId}`;
+            // ▲▲▲ FIM DA ALTERAÇÃO ▲▲▲
+
+            const formattedText = `*Jaguar Locadora*\n- ${vehicleTitle}\n- ${specsText}\n\nDisponível para locação! ${vehicleUrl}`.trim();
+
+            if (navigator.share) { // Comportamento Mobile
+                try {
+                    await navigator.share({ text: formattedText });
+                } catch (error) {
+                    if (error.name !== 'AbortError') console.error('Erro ao compartilhar:', error);
+                }
+            } else { // Comportamento Desktop com Fallback
+                const copied = await copyTextToClipboard(formattedText);
+                if (copied) {
+                    showCopyToast('Copiado!');
+                } else {
+                    alert('Não foi possível copiar automaticamente.');
+                }
+            }
         }
     });
-    
-    // Back to Top Button
-    const backToTopBtn = document.getElementById('backToTop');
-    
-    window.addEventListener('scroll', () => {
-        if(window.scrollY > window.innerHeight / 2) {
-            backToTopBtn.classList.add('active');
-        } else {
-            backToTopBtn.classList.remove('active');
-        }
-    });
-    
-    backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-    
-// Atraso para o botão flutuante do WhatsApp
-window.addEventListener('load', () => {
+
+    // --- OUTRAS FUNÇÕES ---
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    document.getElementById('backToTop')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+});
+
+// --- EVENTOS GLOBAIS DA JANELA ---
+window.addEventListener('load', function () {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        preloader.classList.add('fade-out');
+        setTimeout(() => { preloader.style.display = 'none'; }, 500);
+    }
     const floatingWhatsapp = document.querySelector('.floating-whatsapp');
     if (floatingWhatsapp) {
         setTimeout(() => {
             floatingWhatsapp.style.opacity = '1';
             floatingWhatsapp.style.visibility = 'visible';
-        }, 10000); // 1500ms = 1.5 segundos de atraso (ajuste esse valor conforme preferir)
+        }, 3000);
     }
 });
 
-    // Fleet Filter
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const vehicleCards = document.querySelectorAll('.vehicle-card');
-
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            
-            const filterValue = button.getAttribute('data-filter');
-            
-            vehicleCards.forEach(card => {
-                if(filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    });
-    
-    // Testimonial Slider
-    const testimonialSlider = new Swiper('.testimonial-slider', {
-        loop: true,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-    });
-    
-    // Animation on Scroll
-    AOS.init({
-        duration: 800,
-        once: true,
-        easing: 'ease-in-out',
-    });
-    
-    // Video Fallback
-    const heroVideo = document.querySelector('.hero-video');
-    if (heroVideo) {
-        heroVideo.addEventListener('error', function() {
-            // If video fails to load, disable its display
-            this.style.display = 'none';
-            // REMOVA OU COMENTE AS LINHAS DO BACKGROUND IMAGE SE NÃO QUISER NENHUM FALLBACK DE IMAGEM
-            // document.querySelector('.hero').style.backgroundImage = 'url(https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80)';
-            // document.querySelector('.hero').style.backgroundSize = 'cover';
-            // document.querySelector('.hero').style.backgroundPosition = 'center';
-
-            // Opcional: Para ter CERTEZA que não há background, você pode definir como none
-            document.querySelector('.hero').style.backgroundImage = 'none';
-        });
-    }
-
-   // Função de compartilhamento definitiva
-const shareButtons = document.querySelectorAll('.share-btn');
-
-shareButtons.forEach(button => {
-    button.addEventListener('click', async (event) => {
-        event.preventDefault();
-        
-        const vehicleCard = button.closest('.vehicle-card');
-        if (!vehicleCard) return;
-
-        // 1. Coletar informações do veículo
-        const vehicleTitle = vehicleCard.querySelector('.vehicle-title h3').textContent.trim();
-        const specs = Array.from(vehicleCard.querySelectorAll('.spec-item span'))
-                         .map(span => span.textContent.trim())
-                         .join(' • ');  // Usa • como separador
-        const vehicleId = vehicleCard.id || vehicleCard.dataset.vehicleId;
-
-        // 2. Montar conteúdo no formato EXATO solicitado
-        const shareContent = {
-            title: 'Jaguar Locadora',
-            text: `*Jaguar Locadora*\n- ${vehicleTitle}\n- ${specs}\n\nDisponível para locação!`,
-            url: `${window.location.href.split('#')[0]}${vehicleId ? `#${vehicleId}` : ''}`
-        };
-
-        // 3. Dispositivo Mobile - Compartilhamento Nativo
-        if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-            if (navigator.share) {
-                try {
-                    await navigator.share(shareContent);
-                } catch (err) {
-                    console.log('Compartilhamento cancelado');
-                }
-                return; // Sai da função no mobile
-            }
-        }
-
-        // 4. Desktop - Cópia Automática
-        try {
-            await navigator.clipboard.writeText(
-                `${shareContent.text}\n${shareContent.url}`
-            );
-            
-            // Feedback visual estilizado
-            const feedback = document.createElement('div');
-            feedback.className = 'share-feedback';
-            feedback.innerHTML = `
-                <div style="
-                    background: var(--primary);
-                    color: white;
-                    padding: 12px 24px;
-                    border-radius: 30px;
-                    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-                    font-family: 'Montserrat', sans-serif;
-                    font-size: 14px;
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                ">
-                    <i class="fas fa-check-circle" style="font-size: 18px;"></i>
-                    Informações copiadas para a área de transferência!
-                </div>
-            `;
-            document.body.appendChild(feedback);
-            setTimeout(() => feedback.remove(), 2000);
-            
-        } catch (err) {
-            // Fallback para navegadores antigos
-            const textArea = document.createElement('textarea');
-            textArea.value = `${shareContent.text}\n${shareContent.url}`;
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textArea);
-            
-            const feedback = document.createElement('div');
-            feedback.className = 'share-feedback';
-            feedback.innerHTML = `
-                <div style="
-                    background: var(--primary);
-                    color: white;
-                    padding: 12px 24px;
-                    border-radius: 30px;
-                    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-                    font-family: 'Montserrat', sans-serif;
-                    font-size: 14px;
-                ">
-                    Copiado!
-                </div>
-            `;
-            document.body.appendChild(feedback);
-            setTimeout(() => feedback.remove(), 3000);
-        }
-    });
+window.addEventListener('scroll', () => {
+    document.getElementById('header')?.classList.toggle('scrolled', window.scrollY > 50);
+    document.getElementById('backToTop')?.classList.toggle('active', window.scrollY > 300);
 });
-
-// O bloco de rolagem (DOMContentLoaded) permanece o mesmo e está correto
-document.addEventListener('DOMContentLoaded', () => {
-    const hash = window.location.hash.substring(1);
-    if (hash) {
-        const targetVehicleCard = document.querySelector(`.vehicle-card[id="${hash}"]`);
-        if (targetVehicleCard) {
-            targetVehicleCard.style.display = 'block';
-
-            const category = targetVehicleCard.dataset.category;
-            const filterButton = document.querySelector(`.filter-btn[data-filter="${category}"]`);
-            if (filterButton) {
-                filterButton.click();
-            } else {
-                document.querySelector('.filter-btn[data-filter="all"]').click();
-            }
-
-            const headerOffset = 100;
-            const elementPosition = targetVehicleCard.getBoundingClientRect().top + window.pageYOffset;
-            const offsetPosition = elementPosition - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
-            });
-
-            targetVehicleCard.style.transition = 'box-shadow 0.5s ease-in-out';
-            targetVehicleCard.style.boxShadow = '0 0 0 5px var(--accent)';
-            setTimeout(() => {
-                targetVehicleCard.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.05)';
-            }, 3000);
-        }
-    }
-});
-
-// ADICIONE ESTE NOVO BLOCO para gerenciar o scroll para o card específico
-document.addEventListener('DOMContentLoaded', () => {
-    // Verifica se a URL tem um hash e se ele corresponde a um ID de veículo
-    const hash = window.location.hash.substring(1); // Remove o '#'
-    if (hash) {
-        const targetVehicleCard = document.querySelector(`.vehicle-card[data-vehicle-id="${hash}"]`);
-        if (targetVehicleCard) {
-            // Rola suavemente para o card
-            const headerOffset = 100; // Ajuste conforme a altura do seu cabeçalho fixo
-            const elementPosition = targetVehicleCard.getBoundingClientRect().top + window.pageYOffset;
-            const offsetPosition = elementPosition - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
-            });
-
-            // Opcional: Adicionar um destaque visual temporário ao card
-            targetVehicleCard.style.transition = 'box-shadow 0.5s ease-in-out';
-            targetVehicleCard.style.boxShadow = '0 0 0 5px var(--accent)'; // Destaque vibrante
-            setTimeout(() => {
-                targetVehicleCard.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.05)'; // Volta ao normal
-            }, 3000);
-        }
-    }
-});
-
-    // Atualiza o ano no rodapé
-document.addEventListener('DOMContentLoaded', function() {
-    const yearSpan = document.getElementById('current-year');
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
-});
-
-// Funcionalidade do botão "Ver Todos os Equipamentos"
-document.addEventListener('DOMContentLoaded', () => {
-    const viewAllEquipmentBtn = document.getElementById('viewAllEquipmentBtn');
-    const filterAllBtn = document.querySelector('.filter-btn[data-filter="all"]');
-
-    if (viewAllEquipmentBtn && filterAllBtn) {
-        viewAllEquipmentBtn.addEventListener('click', (e) => {
-            e.preventDefault(); // Impede o comportamento padrão de rolagem imediata do link
-
-            // Rola suavemente para a seção da frota
-            const fleetSection = document.getElementById('fleet');
-            if (fleetSection) {
-                // A navegação principal já tem um offset de 80px, então usamos o mesmo.
-                const offset = 80; 
-                window.scrollTo({
-                    top: fleetSection.offsetTop - offset,
-                    behavior: 'smooth'
-                });
-            }
-
-            // Simula um clique no botão de filtro "Todos"
-            // Isso vai ativar a classe 'active' e mostrar todos os cards
-            filterAllBtn.click();
-        });
-    }
-});
-
-
-// Função de pesquisa
-document.getElementById('vehicleSearch').addEventListener('input', function() {
-    const searchTerms = this.value.toLowerCase().split(' ');
-    const vehicles = document.querySelectorAll('.vehicle-card');
-    const noResultsMessage = document.querySelector('.no-results-message');
-    let hasResults = false;
-    
-    vehicles.forEach(vehicle => {
-        const title = vehicle.querySelector('h3').textContent.toLowerCase();
-        const specs = vehicle.querySelector('.vehicle-specs').textContent.toLowerCase();
-        const year = vehicle.querySelector('.spec-item:nth-child(4) span').textContent.toLowerCase();
-        const category = vehicle.getAttribute('data-category');
-        
-        const matchesAll = searchTerms.every(term => 
-            title.includes(term) || 
-            specs.includes(term) || 
-            category.includes(term) || 
-            year.includes(term)
-        );
-        
-        vehicle.style.display = matchesAll ? 'block' : 'none';
-        if (matchesAll) hasResults = true;
-    });
-    
-    // Mostra mensagem se não houver resultados
-    if (!hasResults && this.value.trim() !== '') {
-        noResultsMessage.style.display = 'block';
-    } else {
-        noResultsMessage.style.display = 'none';
-    }
-});
-
-// Função para limpar a pesquisa
-function resetSearch() {
-    const searchInput = document.getElementById('vehicleSearch');
-    searchInput.value = '';
-    searchInput.dispatchEvent(new Event('input'));
-    document.querySelector('.filter-btn[data-filter="all"]').click();
-}
-
-// Função para o botão de curtir (like)
-document.addEventListener('DOMContentLoaded', function() {
-    // Seleciona todos os botões de like
-    const likeButtons = document.querySelectorAll('.action-btn .heart-icon');
-    
-    // Adiciona evento de clique a cada botão
-    likeButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.stopPropagation(); // Impede que o evento se propague para elementos pais
-            
-            // Alterna a classe 'liked' que muda a cor do coração
-            this.classList.toggle('liked');
-            
-            // Opcional: Armazenar no localStorage para persistência
-            const vehicleCard = this.closest('.vehicle-card');
-            if (vehicleCard) {
-                const vehicleId = vehicleCard.id;
-                if (this.classList.contains('liked')) {
-                    localStorage.setItem(`liked_${vehicleId}`, 'true');
-                } else {
-                    localStorage.removeItem(`liked_${vehicleId}`);
-                }
-            }
-        });
-        
-        // Verifica se já foi curtido anteriormente (persistência)
-        const vehicleCard = button.closest('.vehicle-card');
-        if (vehicleCard) {
-            const vehicleId = vehicleCard.id;
-            if (localStorage.getItem(`liked_${vehicleId}`)) {  // Corrigido: parêntese fechado
-                button.classList.add('liked');
-            }
-        }
-    });
-});
-
 </script>
-
 </body>
 </html>
