@@ -2084,6 +2084,11 @@ section.fleet {
     transform: scale(1.03);
 }
 
+.link-inativo {
+    pointer-events: none; /* Faz o link ignorar completamente os cliques */
+    //*cursor: default;      /* Opcional: Transforma o cursor de "mãozinha" para a seta normal */
+}
+
     </style>
 </head>
 <body>
@@ -2763,12 +2768,13 @@ section.fleet {
             <div class="footer-links">
                 <h3>Nossos Serviços</h3>
                 <ul>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Locação Diária</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Locação Semanal</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Locação Mensal</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Equipamentos para Obras</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Transporte de Cargas</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Logística Integrada</a></li>
+                    <li><a href="" class="link-inativo"><i class="fas fa-chevron-right"></i> Locação Diária</a></li>
+                    <li><a href="" class="link-inativo"><i class="fas fa-chevron-right"></i> Locação Semanal</a></li>
+                    <li><a href="" class="link-inativo"><i class="fas fa-chevron-right"></i> Locação Mensal</a></li>
+                    <li><a href="" class="link-inativo"><i class="fas fa-chevron-right"></i> Manutenção Garantida</a></li>
+                    <li class="hidden"><a href="#"><i class="fas fa-chevron-right"></i> Equipamentos para Obras</a></li>
+                    <li class="hidden"><a href="#"><i class="fas fa-chevron-right"></i> Transporte de Cargas</a></li>
+                    <li class="hidden"><a href="#"><i class="fas fa-chevron-right"></i> Logística Integrada</a></li>
                 </ul>
             </div>
             
