@@ -6,19 +6,26 @@
     <title>Jaguar Locadora | Locação de Veículos</title>
     <meta name="description" content="Soluções completas em locação de veículos. Frota moderna, manutenção garantida e atendimento personalizado.">
     
+    <meta name="theme-color" content="#000000">
+
+    <link rel="manifest" href="/manifest.json">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Jaguar">
+
+    <link rel="icon" href="imagens/logo/logo_jaguar_favicon.png">
+    <link rel="apple-touch-icon" href="imagens/icons/icon-180x180.png">
+
     <meta property="og:title" content="Jaguar Locadora | Locação de Veículos e Máquinas Pesadas">
     <meta property="og:description" content="Frota moderna, atendimento personalizado e o melhor custo-benefício para o seu projeto.">
-    <meta property="og:image" content="https://i.imgur.com/uwSEeIn.png">
+    <meta property="og:image" content="imagens/logo/logo_principal.png">
     <meta property="og:url" content="https://jaguarlocadora.com">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
     <meta property="og:site_name" content="Jaguar Locadora">
 
-        <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    
+          
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -137,15 +144,6 @@ header {
     height: calc(80px + env(safe-area-inset-top));
 }
 
-/* Versão quando scrollado */
-header.scrolled {
-    padding-top: calc(15px + env(safe-area-inset-top));
-    height: calc(60px + env(safe-area-inset-top));
-    background-color: #000000; /* Preto sólido */
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
-}
-
 /* Ajuste para o conteúdo principal */
 .main-content {
     margin-top: calc(80px + env(safe-area-inset-top));
@@ -165,13 +163,27 @@ header.scrolled {
         height: calc(70px + env(safe-area-inset-top));
     }
     
-    header.scrolled {
-        height: calc(50px + env(safe-area-inset-top));
-    }
-    
+   
     .main-content {
         margin-top: calc(70px + env(safe-area-inset-top));
     }
+}
+
+/* --- ESTILOS PARA A LOGO EM IMAGEM --- */
+
+/* Logo no cabeçalho */
+.logo-image {
+    height: 75px; /* Altura da logo no estado normal */
+    width: auto;  /* Largura automática para manter a proporção */
+    transition: height 0.3s ease; /* Animação suave para a altura */
+}
+
+/* Logo no rodapé */
+.footer-logo-image {
+   height: 130px;
+    width: auto;
+    max-width: 100%;
+    margin: 0; /* Remove margens automáticas */
 }
 
 .logo {
@@ -1205,19 +1217,20 @@ nav ul li a:hover::after {
         }
         
         .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            margin-bottom: 60px;
-            position: relative;
-            z-index: 1;
-        }
+           display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 50px;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 1;
+    padding: 0 20px;
+    /* Linha corrigida abaixo */
+    align-items: start; 
+}
         
         .footer-logo {
-            display: flex;
-            align-items: center;
             margin-bottom: 20px;
-        }
+    }
         
         .footer-logo-icon {
             width: 40px;
@@ -1244,12 +1257,17 @@ nav ul li a:hover::after {
         .footer-logo-text span {
             color: var(--secondary);
         }
-        
+        /* REGRA 1: Alinha a coluna inteira à esquerda */
+.footer-about {
+ justify-self: start;
+}
         .footer-about p {
-            opacity: 0.7;
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
+    opacity: 0.7;
+    margin-bottom: 20px;
+    line-height: 1.8;
+    text-align: justify; /* Adicionado para garantir o alinhamento do texto */
+}
+        
         
         .footer-social {
             display: flex;
@@ -1272,14 +1290,20 @@ nav ul li a:hover::after {
             background: var(--gradient);
             transform: translateY(-5px);
         }
+
+        .footer-links {
+    text-align: left;
+    padding-left: 0; /* Remove padding padrão */
+}
         
         .footer-links h3 {
-            font-size: 20px;
-            margin-bottom: 25px;
-            color: var(--white);
-            position: relative;
-            padding-bottom: 10px;
-        }
+           font-size: 20px;
+    margin-bottom: 25px;
+    color: var(--white);
+    position: relative;
+    padding-bottom: 10px;
+    margin-top: 0; /* <-- ADICIONE ESTA LINHA */
+}
         
         .footer-links h3::after {
             content: '';
@@ -1293,12 +1317,13 @@ nav ul li a:hover::after {
         }
         
         .footer-links ul {
-            list-style: none;
-        }
+            padding-left: 0; /* Remove padding padrão da lista */
+    list-style: none;
+}
         
         .footer-links li {
-            margin-bottom: 15px;
-        }
+           margin-bottom: 15px;
+}
         
         .footer-links a {
             color: rgba(255, 255, 255, 0.7);
@@ -1306,6 +1331,8 @@ nav ul li a:hover::after {
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
+            justify-content: flex-start; /* Alinha os ícones e texto à esquerda */
+
         }
         
         .footer-links a:hover {
@@ -2061,11 +2088,8 @@ section.fleet {
     <!-- Header -->
     <header id="header">
         <a href="#" class="logo">
-            <div class="logo-icon">
-                <i class="fas fa-truck-monster"></i>
-            </div>
-            <div class="logo-text">Jaguar<span>Locadora</span></div>
-        </a>
+    <img src="imagens/logo/logo_jaguar_branca.png" alt="Logo Jaguar Locadora" class="logo-image">
+</a>
         <nav>
             <ul class="nav-links">
                 <li><a href="#home">Início</a></li>
@@ -2256,7 +2280,7 @@ section.fleet {
 
                 <div class="swiper-slide" data-category="passeio" data-aos="fade-up" data-aos-delay="100">
                     <div class="vehicle-card" id="veiculo-1" data-vehicle-id="renault-duster">
-                        <div class="vehicle-badge">Reserve</div>
+                        <div class="vehicle-badge hidden">Reserve</div>
                         <div class="vehicle-media">
                             <img src="imagens/veiculos/duster_renault_2025.jpeg" alt="Renault Duster">
                             <div class="image-overlay"><p>Imagem ilustrativa<br>Reprodução: Renault</p></div>
@@ -2280,7 +2304,7 @@ section.fleet {
 
                 <div class="swiper-slide" data-category="picape" data-aos="fade-up" data-aos-delay="100">
                     <div class="vehicle-card" id="veiculo-2" data-vehicle-id="renault-oroch">
-                       <div class="vehicle-badge">Reserve</div>
+                       <div class="vehicle-badge hidden">Reserve</div>
                        <div class="vehicle-media">
                            <img src="imagens/veiculos/oroch_renault_2025.jpeg" alt="Renault Oroch">
                            <div class="image-overlay"><p>Imagem ilustrativa<br>Reprodução: Renault</p></div>
@@ -2304,7 +2328,7 @@ section.fleet {
 
                 <div class="swiper-slide" data-category="picape" data-aos="fade-up" data-aos-delay="100">
                     <div class="vehicle-card" id="veiculo-3" data-vehicle-id="fiat-strada">
-                         <div class="vehicle-badge">Reserve</div>
+                         <div class="vehicle-badge hidden">Reserve</div>
                          <div class="vehicle-media">
                              <img src="imagens/veiculos/fiat_strada_endurance_2025.jpg" alt="Fiat Strada">
                              <div class="image-overlay"><p>Imagem ilustrativa<br>Reprodução: Fiat</p></div>
@@ -2328,7 +2352,7 @@ section.fleet {
                 
                 <div class="swiper-slide" data-category="passeio" data-aos="fade-up" data-aos-delay="100">
                     <div class="vehicle-card" id="veiculo-4" data-vehicle-id="hyundai-hb20">
-                        <div class="vehicle-badge">Reserve</div>
+                        <div class="vehicle-badge hidden">Reserve</div>
                         <div class="vehicle-media">
                             <img src="imagens/veiculos/hyundai_hb20_2025.jpg" alt="Hyundai HB20"> <div class="image-overlay"><p>Imagem ilustrativa<br>Reprodução: Hyundai</p></div>
                         </div>
@@ -2351,7 +2375,7 @@ section.fleet {
 
                 <div class="swiper-slide" data-category="picape" data-aos="fade-up" data-aos-delay="100">
                     <div class="vehicle-card" id="veiculo-5" data-vehicle-id="toyota-hilux">
-                        <div class="vehicle-badge">Reserve</div>
+                        <div class="vehicle-badge hidden">Reserve</div>
                         <div class="vehicle-media">
                             <img src="imagens/veiculos/toyota_hilux_2025.jpg" alt="Toyota Hilux"> <div class="image-overlay"><p>Imagem ilustrativa<br>Reprodução: Toyota</p></div>
                         </div>
@@ -2374,7 +2398,7 @@ section.fleet {
 
                 <div class="swiper-slide" data-category="picape" data-aos="fade-up" data-aos-delay="100">
                     <div class="vehicle-card" id="veiculo-6" data-vehicle-id="ford-ranger">
-                        <div class="vehicle-badge">Reserve</div>
+                        <div class="vehicle-badge hidden">Reserve</div>
                         <div class="vehicle-media">
                             <img src="imagens/veiculos/ford_ranger.jpg" alt="Ford Ranger"> <div class="image-overlay"><p>Imagem ilustrativa<br>Reprodução: Ford</p></div>
                         </div>
@@ -2397,7 +2421,7 @@ section.fleet {
                 
                 <div class="swiper-slide" data-category="passeio" data-aos="fade-up" data-aos-delay="100">
                     <div class="vehicle-card" id="veiculo-7" data-vehicle-id="vw-voyage">
-                        <div class="vehicle-badge">Reserve</div>
+                        <div class="vehicle-badge hidden">Reserve</div>
                         <div class="vehicle-media">
                             <img src="imagens/veiculos/volks_voyage.jpg" alt="Volkswagen Voyage"> <div class="image-overlay"><p>Imagem ilustrativa<br>Reprodução: Volkswagen</p></div>
                         </div>
@@ -2447,7 +2471,7 @@ section.fleet {
                 </div>
                 <div class="service-content">
                     <h3>Locação Diária</h3>
-                    <p>Ideal para projetos rápidos e demandas pontuais, com entrega imediata e suporte especializado.</p>
+                    <p>Ideal para projetos rápidos e demandas pontuais, com suporte especializado e qualidade garantida.</p>
                 </div>
             </div>
             
@@ -2458,7 +2482,7 @@ section.fleet {
                 </div>
                 <div class="service-content">
                     <h3>Locação Semanal</h3>
-                    <p>Pacote econômico com desconto progressivo para projetos de média duração.</p>
+                    <p>Pacote econômico com desconto progressivo para projetos de média duração, com benefícios adicionais.</p>
                 </div>
             </div>
             
@@ -2469,12 +2493,12 @@ section.fleet {
                 </div>
                 <div class="service-content">
                     <h3>Locação Mensal</h3>
-                    <p>Melhor custo-benefício para obras contínuas, com manutenção preventiva inclusa.</p>
+                    <p>Melhor custo-benefício com manutenção preventiva inclusa, garantindo eficiência, confiança e ótimo desempenho.</p>
                 </div>
             </div>
             
             <!-- Service 4 -->
-            <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-card hidden" data-aos="fade-up" data-aos-delay="400">
                 <div class="service-icon">
                     <i class="fas fa-hard-hat"></i>
                 </div>
@@ -2485,7 +2509,7 @@ section.fleet {
             </div>
             
             <!-- Service 5 -->
-            <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-card hidden" data-aos="fade-up" data-aos-delay="500">
                 <div class="service-icon">
                     <i class="fas fa-truck-moving"></i>
                 </div>
@@ -2496,7 +2520,7 @@ section.fleet {
             </div>
             
             <!-- Service 6 -->
-            <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+            <div class="service-card hidden" data-aos="fade-up" data-aos-delay="600">
                 <div class="service-icon">
                     <i class="fas fa-road"></i>
                 </div>
@@ -2507,7 +2531,7 @@ section.fleet {
             </div>
             
             <!-- Service 7 -->
-            <div class="service-card" data-aos="fade-up" data-aos-delay="700">
+            <div class="service-card hidden" data-aos="fade-up" data-aos-delay="700">
                 <div class="service-icon">
                     <i class="fas fa-people-carry"></i>
                 </div>
@@ -2524,7 +2548,7 @@ section.fleet {
                 </div>
                 <div class="service-content">
                     <h3>Manutenção Garantida</h3>
-                    <p>Todos os equipamentos passam por manutenção preventiva rigorosa antes de cada locação.</p>
+                    <p>Todos os equipamentos passam por manutenção preventiva rigorosa antes de cada locação, assegurando qualidade.</p>
                 </div>
             </div>
         </div>
@@ -2706,11 +2730,8 @@ section.fleet {
         <div class="footer-content">
             <div class="footer-about">
                 <div class="footer-logo">
-                    <div class="footer-logo-icon">
-                        <i class="fas fa-truck-monster"></i>
-                    </div>
-                    <div class="footer-logo-text">Jaguar<span>Locadora</span></div>
-                </div>
+        <img src="imagens/logo/logo_jaguar_branca.png" alt="Logo Jaguar Locadora" class="footer-logo-image">
+    </div>
                 <p>Excelência em locação de veículos. Oferecendo soluções completas com tecnologia, segurança e eficiência.</p>
                 <div class="footer-social hidden">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
