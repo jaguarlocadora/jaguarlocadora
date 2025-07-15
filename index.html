@@ -534,7 +534,7 @@ nav ul li a:hover::after {
     left: 50%;
     transform: translateX(-50%);
     z-index: 0;
-    opacity: 0.7;
+    opacity: 1;
 }
         
         .section-title p {
@@ -2077,6 +2077,13 @@ section.fleet {
     transform: translateX(-50%) translateY(-10px); /* Move para cima ao aparecer */
 }
 
+/* Estilo para destacar o card do veículo compartilhado */
+.vehicle-card.highlight {
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 0 4px var(--accent) !important;
+    transform: scale(1.03);
+}
+
     </style>
 </head>
 <body>
@@ -2252,7 +2259,7 @@ section.fleet {
         <p>Equipamentos modernos e bem conservados para atender seu projeto.</p>
     </div>
 
-    <div class="search-container" data-aos="fade-up" data-aos-delay="100">
+    <div id="barra-pesquisa" class="search-container" data-aos="fade-up" data-aos-delay="100">
         <div class="search-wrapper">
             <input type="text" id="vehicleSearch" placeholder="Buscar veículo..." class="search-input">
             <button class="search-btn"><i class="fas fa-search"></i></button>
@@ -2859,6 +2866,43 @@ document.addEventListener('DOMContentLoaded', function() {
         on: { init: function() { setTimeout(() => AOS.refresh(), 300); }, slideChangeTransitionEnd: function() { AOS.refresh(); } }
     });
 
+    // --- LÓGICA DE ROLAGEM E DESTAQUE PARA LINK COMPARTILHADO ---
+// Verifica se a página foi carregada com um #veiculo- no link
+if (window.location.hash) {
+
+    
+    // Espera um instante para a página carregar
+    setTimeout(() => {
+        const vehicleId = window.location.hash;
+        // ⭐ MUDANÇA PRINCIPAL AQUI: O novo alvo é a seção inteira da frota
+        const scrollTarget = document.getElementById('fleet'); 
+        const vehicleCard = document.querySelector(vehicleId);
+
+        // 1. Rola a tela para o TOPO da seção "Nossa Frota"
+        if (scrollTarget) {
+            scrollTarget.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start' // 'start' alinha o alvo no topo da tela
+            });
+        }
+
+        // 2. Aplica o destaque no card correto
+        if (vehicleCard) {
+            // Remove o destaque de qualquer outro card que possa tê-lo
+            document.querySelectorAll('.vehicle-card.highlight').forEach(card => {
+                card.classList.remove('highlight');
+            });
+
+            // Adiciona a classe de destaque
+            vehicleCard.classList.add('highlight');
+
+            // Remove o destaque após 3 segundos
+            setTimeout(() => {
+                vehicleCard.classList.remove('highlight');
+            }, 3000);
+        }
+    }, 500); // Atraso para garantir que os elementos da página foram renderizados
+}
     // --- LÓGICA DE FILTRO E PESQUISA ---
     const searchInput = document.getElementById('vehicleSearch');
     const searchButton = document.querySelector('.search-btn');
