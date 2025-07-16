@@ -2122,6 +2122,33 @@ body.filtro-ativo .vehicle-card:hover {
     box-shadow: none !important;
 }
 
+.footer-column-right {
+  justify-self: end; /* Alinha o item da grade ao final (direita) do seu espaço */
+}
+@media (max-width: 992px) {
+  .footer-content {
+    /* Garante que o layout seja de uma única coluna */
+    grid-template-columns: 1fr !important;
+  }
+
+  /* FORÇA o alinhamento de todos os itens do rodapé para a esquerda */
+  .footer-content > div {
+    justify-self: start !important;
+    text-align: left !important;
+  }
+  
+  /* Garante que o texto dentro dos links também fique alinhado à esquerda */
+  .footer-links ul {
+    /* Remove qualquer padding que possa empurrar a lista */
+    padding-left: 0 !important; 
+  }
+
+  /* Garante que o subtítulo também se alinhe à esquerda */
+  .footer-links h3::after {
+      left: 0 !important;
+      transform: none !important;
+  }
+}
     </style>
 </head>
 <body>
@@ -2786,7 +2813,7 @@ body.filtro-ativo .vehicle-card:hover {
                 </div>
             </div>
             
-            <div class="footer-links">
+            <div class="footer-links footer-column-right">
                 <h3>Links Rápidos</h3>
                 <ul>
                     <li><a href="#home"><i class="fas fa-chevron-right"></i> Início</a></li>
