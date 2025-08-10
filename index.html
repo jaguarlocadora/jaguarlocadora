@@ -736,8 +736,8 @@ nav ul li a:hover::after {
     /* Adicionamos uma proporção, fazendo a imagem mais alta */
     aspect-ratio: 16 / 10;
 
-    overflow: hidden;
-    position: relative;
+    overflow: hidden;
+    position: relative;
 }
         
         .vehicle-media img {
@@ -1892,7 +1892,6 @@ nav ul li a:hover::after {
     margin-bottom: 0; /* Remove a margem padrão do parágrafo */
 }
 
-/* ▼▼▼ COLE ESTE NOVO ESTILO PARA O SLIDER ▼▼▼ */
 /* Container principal com espaço para as setas externas */
 .fleet-slider-container {
     position: relative;
@@ -2248,11 +2247,11 @@ body.filtro-ativo .vehicle-card:hover {
         
         <!-- Floating Elements -->
         <div class="floating-elements">
-    <div class="floating-element" style="width: 300px; height: 300px; top: 16%; left: 2%; ..."></div>
+    <div class="floating-element" style="width: 300px; height: 300px; top: 16%; left: 2%;"></div>
     
-    <div class="floating-element" style="width: 200px; height: 200px; top: 70%; right: 10%; ..."></div>
+    <div class="floating-element" style="width: 200px; height: 200px; top: 70%; right: 10%;"></div>
 
-    <div class="floating-element" style="width: 150px; height: 150px; top: 50%; right: 20%; ..."></div>
+    <div class="floating-element" style="width: 150px; height: 150px; top: 50%; right: 20%;"></div>
 </div>
     </section>
     
@@ -2924,11 +2923,16 @@ document.addEventListener('DOMContentLoaded', function() {
         pagination: { el: '.testimonial-slider .swiper-pagination', clickable: true },
     });
 
-    const fleetSlider = new Swiper('.fleet-slider', {
-        effect: 'slide', loop: true, centeredSlides: true, slidesPerView: 'auto', slidesPerGroup: 1, spaceBetween: 20,
+        const fleetSlider = new Swiper('.fleet-slider', {
+        effect: 'slide', loop: false, centeredSlides: false, slidesPerView: 3, slidesPerGroup: 3, spaceBetween: 30,
         navigation: { nextEl: '.fleet-slider-container .swiper-button-next', prevEl: '.fleet-slider-container .swiper-button-prev' },
         pagination: { el: '.fleet-slider-container .swiper-pagination', clickable: true },
-        breakpoints: { 768: { slidesPerView: 2, spaceBetween: 30 }, 1024: { slidesPerView: 3, spaceBetween: 40 } },
+        breakpoints: { 
+            0: { slidesPerView: 1, spaceBetween: 20 },
+            576: { slidesPerView: 2, spaceBetween: 20 },
+            768: { slidesPerView: 3, spaceBetween: 30 },
+            1024: { slidesPerView: 3, spaceBetween: 40 } 
+        },
         on: { init: function() { setTimeout(() => AOS.refresh(), 300); }, slideChangeTransitionEnd: function() { AOS.refresh(); } }
     });
 
