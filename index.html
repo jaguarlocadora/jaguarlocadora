@@ -3204,17 +3204,18 @@ document.addEventListener('DOMContentLoaded', function() {
             const vehicleUrl = `${baseUrl}/#frota`;
             const formattedText = `Jaguar Locadora\n- ${vehicleTitle}\n- ${specsText}\n\nAcesse nossa frota completa: ${vehicleUrl}`;
 
-            if (navigator.share) {
+            if (navigator.share) { // Comportamento Mobile
                 try {
                     await navigator.share({
                         title: 'Jaguar Locadora',
                         text: formattedText,
+                        url: vehicleUrl
                     });
                     console.log('Shared successfully via mobile');
                 } catch (error) {
                     console.error('Erro ao compartilhar (Mobile):', error);
                 }
-            } else {
+            } else { // Comportamento Desktop com Fallback
                 const copied = await copyTextToClipboard(formattedText);
                 if (copied) {
                     showCopyToast('Informações do veículo copiadas!');
