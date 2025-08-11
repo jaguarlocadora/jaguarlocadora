@@ -3208,8 +3208,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 try {
                     await navigator.share({
                         title: 'Jaguar Locadora',
-                        text: formattedText,
-                        url: vehicleUrl
+                        text: formattedText
                     });
                     console.log('Shared successfully via mobile');
                 } catch (error) {
