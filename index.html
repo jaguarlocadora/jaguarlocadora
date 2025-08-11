@@ -3194,33 +3194,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const vehicleTitle = vehicleCard.querySelector('h3').textContent.trim();
             const specNodes = vehicleCard.querySelectorAll('.vehicle-specs .spec-item span');
-            const vehicleId = vehicleCard.id;
             const specsText = Array.from(specNodes).map(span => span.textContent.trim()).join(' • ');
 
-            // ▼▼▼ ALTERAÇÃO PRINCIPAL AQUI ▼▼▼
-            // Pega a URL base da meta tag 'og:url' para usar o link de produção.
-            const siteUrlMeta = document.querySelector('meta[property="og:url"]');
-            // Se a tag não for encontrada, usa a URL principal como um fallback seguro.
-            const baseUrl = siteUrlMeta ? siteUrlMeta.getAttribute('content') : 'https://jaguarlocadora.com';
-            // Monta a URL final, garantindo que não haja barras duplas (//).
-            const vehicleUrl = `${baseUrl.replace(/\/+$/, '')}/#${vehicleId}`;
-            // ▲▲▲ FIM DA ALTERAÇÃO ▲▲▲
+            const baseUrl = 'https://jaguarlocadora.com';
+            const vehicleUrl = `${baseUrl}/#frota`;
+            const formattedText = `Jaguar Locadora\n- ${vehicleTitle}\n- ${specsText}\n\nDisponível para locação! ${vehicleUrl}`;
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(formattedText)}`;
 
-            const formattedText = `*Jaguar Locadora*\n- ${vehicleTitle}\n- ${specsText}\n\nDisponível para locação! ${vehicleUrl}`.trim();
-
-            if (navigator.share) { // Comportamento Mobile
-                try {
-                    await navigator.share({ text: formattedText });
-                } catch (error) {
-                    if (error.name !== 'AbortError') console.error('Erro ao compartilhar:', error);
-                }
+            if (/Android|iOS/i.test(navigator.userAgent)) { // Comportamento Mobile
+                window.location.href = whatsappUrl;
             } else { // Comportamento Desktop com Fallback
-                const copied = await copyTextToClipboard(formattedText);
-                if (copied) {
-                    showCopyToast('Copiado!');
-                } else {
-                    alert('Não foi possível copiar automaticamente.');
-                }
+                navigator.clipboard.writeText(formattedText);
+                showCopyToast('Informações do veículo copiadas!');
             }
         }
     });
