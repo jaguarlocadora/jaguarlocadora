@@ -3052,8 +3052,6 @@ document.addEventListener('DOMContentLoaded', function() {
             updateBullets();
         }
     }
-
-    initSwiper(swiperOptions);
     
     // --- LÓGICA DE FILTRO E PESQUISA ---
     const searchInput = document.getElementById('vehicleSearch');
@@ -3205,7 +3203,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Se a tag não for encontrada, usa a URL principal como um fallback seguro.
             const baseUrl = siteUrlMeta ? siteUrlMeta.getAttribute('content') : 'https://jaguarlocadora.com';
             // Monta a URL final, garantindo que não haja barras duplas (//).
-            const vehicleUrl = `${baseUrl.replace(/\/$/, '')}/#${vehicleId}`;
+            const vehicleUrl = `${baseUrl.replace(/\/+$/, '')}/#${vehicleId}`;
             // ▲▲▲ FIM DA ALTERAÇÃO ▲▲▲
 
             const formattedText = `*Jaguar Locadora*\n- ${vehicleTitle}\n- ${specsText}\n\nDisponível para locação! ${vehicleUrl}`.trim();
@@ -3227,17 +3225,49 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // --- FUNÇÃO PARA LIDAR COM LINKS DIRETOS (DEEP LINKING) ---
+    function handleDeepLink() {
+        const hash = window.location.hash.substring(1);
+        if (!hash) return;
+
+        const allSlides = document.querySelectorAll('.fleet-slider .swiper-slide:not(.swiper-slide-duplicate)');
+        let targetIndex = -1;
+
+        allSlides.forEach((slide, index) => {
+            const vehicleCard = slide.querySelector('.vehicle-card');
+            if (vehicleCard && vehicleCard.id === hash) {
+                targetIndex = index;
+            }
+        });
+
+        if (targetIndex !== -1 && fleetSlider) {
+            // Damos um pequeno tempo para o Swiper se estabelecer antes de mover
+            setTimeout(() => {
+                fleetSlider.slideToLoop(targetIndex, 800); // 800ms de animação para o slide
+                
+                // Força um update para corrigir qualquer problema de renderização
+                setTimeout(() => {
+                    fleetSlider.update();
+                }, 100); // Um delay extra para garantir a renderização correta
+            }, 300); // Delay inicial
+        }
+    }
+
+    initSwiper(swiperOptions);
+    handleDeepLink(); // <-- CHAMADA DA NOVA FUNÇÃO
+
     // --- OUTRAS FUNÇÕES ---
     document.getElementById('current-year').textContent = new Date().getFullYear();
     document.getElementById('backToTop')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 });
 
+
 // --- EVENTOS GLOBAIS DA JANELA ---
 window.addEventListener('load', function () {
+    console.log('Window loaded!'); // Added for debugging
     const preloader = document.getElementById('preloader');
     if (preloader) {
-        preloader.classList.add('fade-out');
-        setTimeout(() => { preloader.style.display = 'none'; }, 500);
+        preloader.style.display = 'none'; // Changed to immediate hide for testing
     }
     const floatingWhatsapp = document.querySelector('.floating-whatsapp');
     if (floatingWhatsapp) {
