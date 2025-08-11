@@ -1792,6 +1792,7 @@ nav ul li a:hover::after {
     max-width: 600px; /* Máximo de largura */
     display: flex;
     margin: 0 auto; /* Centraliza o wrapper */
+    position: relative;
 }
 
 .search-input {
@@ -1817,6 +1818,23 @@ nav ul li a:hover::after {
     padding: 0 25px;
     cursor: pointer;
     transition: all 0.3s;
+}
+
+.clear-search-btn {
+    background: transparent;
+    border: none;
+    color: #999;
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute;
+    right: 75px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s;
+}
+
+.clear-search-btn:hover {
+    color: var(--secondary);
 }
 
 /* Versão mobile */
@@ -2121,9 +2139,62 @@ body.filtro-ativo .vehicle-card:hover {
     box-shadow: none !important;
 }
 
+.custom-pagination {
+    position: relative;
+    text-align: center;
+    margin-top: 20px;
+    bottom: 0;
+}
+.custom-pagination .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: .3;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+.custom-pagination .swiper-pagination-bullet-active {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
 .footer-column-right {
   justify-self: end; /* Alinha o item da grade ao final (direita) do seu espaço */
 }
+
+@keyframes slide-in-from-right {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-from-left {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slide-right .swiper-wrapper {
+    animation: slide-in-from-right 0.5s ease-out forwards;
+}
+
+.slide-left .swiper-wrapper {
+    animation: slide-in-from-left 0.5s ease-out forwards;
+}
+
 @media (max-width: 992px) {
   .footer-content {
     /* Garante que o layout seja de uma única coluna */
@@ -2327,6 +2398,7 @@ body.filtro-ativo .vehicle-card:hover {
         <div class="search-wrapper">
             <input type="text" id="vehicleSearch" placeholder="Buscar veículo..." class="search-input">
             <button class="search-btn"><i class="fas fa-search"></i></button>
+            <button class="clear-search-btn" style="display: none;"><i class="fas fa-times"></i></button>
         </div>
     </div>
 
@@ -2347,9 +2419,9 @@ body.filtro-ativo .vehicle-card:hover {
 
     <div class="fleet-slider-container">
         <div class="swiper fleet-slider">
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper" data-aos="fade-up">
 
-                <div class="swiper-slide" data-category="passeio" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-slide" data-category="passeio">
                     <div class="vehicle-card" id="duster" data-vehicle-id="renault-duster">
                         <div class="vehicle-badge hidden">Reserve</div>
                         <div class="vehicle-media">
@@ -2373,7 +2445,7 @@ body.filtro-ativo .vehicle-card:hover {
                     </div>
                 </div>
 
-                <div class="swiper-slide" data-category="picape" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-slide" data-category="picape">
                     <div class="vehicle-card" id="oroch" data-vehicle-id="renault-oroch">
                        <div class="vehicle-badge hidden">Reserve</div>
                        <div class="vehicle-media">
@@ -2397,7 +2469,7 @@ body.filtro-ativo .vehicle-card:hover {
                     </div>
                 </div>
 
-                <div class="swiper-slide" data-category="picape" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-slide" data-category="picape">
                     <div class="vehicle-card" id="strada" data-vehicle-id="fiat-strada">
                          <div class="vehicle-badge hidden">Reserve</div>
                          <div class="vehicle-media">
@@ -2421,7 +2493,7 @@ body.filtro-ativo .vehicle-card:hover {
                     </div>
                 </div>
                 
-                <div class="swiper-slide" data-category="passeio" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-slide" data-category="passeio">
                     <div class="vehicle-card" id="hb20" data-vehicle-id="hyundai-hb20">
                         <div class="vehicle-badge hidden">Reserve</div>
                         <div class="vehicle-media">
@@ -2444,7 +2516,7 @@ body.filtro-ativo .vehicle-card:hover {
                     </div>
                 </div>
 
-                <div class="swiper-slide" data-category="picape" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-slide" data-category="picape">
                     <div class="vehicle-card" id="hilux" data-vehicle-id="toyota-hilux">
                         <div class="vehicle-badge hidden">Reserve</div>
                         <div class="vehicle-media">
@@ -2467,7 +2539,7 @@ body.filtro-ativo .vehicle-card:hover {
                     </div>
                 </div>
 
-                <div class="swiper-slide" data-category="picape" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-slide" data-category="picape">
                     <div class="vehicle-card" id="ranger" data-vehicle-id="ford-ranger">
                         <div class="vehicle-badge hidden">Reserve</div>
                         <div class="vehicle-media">
@@ -2490,7 +2562,7 @@ body.filtro-ativo .vehicle-card:hover {
                     </div>
                 </div>
                 
-                <div class="swiper-slide" data-category="passeio" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-slide" data-category="passeio">
                     <div class="vehicle-card" id="voyage" data-vehicle-id="vw-voyage">
                         <div class="vehicle-badge hidden">Reserve</div>
                         <div class="vehicle-media">
@@ -2517,7 +2589,7 @@ body.filtro-ativo .vehicle-card:hover {
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
+        <div class="custom-pagination"></div>
     </div>
     </div>
 </section>
@@ -2915,82 +2987,109 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // --- INICIALIZAÇÕES DE BIBLIOTECAS ---
-    AOS.init({ duration: 800, once: true, easing: 'ease-out-quad' });
+    AOS.init({ duration: 800, easing: 'ease-out-quad' });
 
-    new Swiper('.testimonial-slider', {
+    let fleetSlider;
+
+    const swiperOptions = {
+        effect: 'slide',
         loop: true,
-        autoplay: { delay: 5000, disableOnInteraction: false },
-        pagination: { el: '.testimonial-slider .swiper-pagination', clickable: true },
-    });
-
-        const fleetSlider = new Swiper('.fleet-slider', {
-        effect: 'slide', loop: true, centeredSlides: true, slidesPerView: 3, slidesPerGroup: 1, spaceBetween: 30,
-        navigation: { nextEl: '.fleet-slider-container .swiper-button-next', prevEl: '.fleet-slider-container .swiper-button-prev' },
-        pagination: { el: '.fleet-slider-container .swiper-pagination', clickable: true },
-        breakpoints: { 
+        centeredSlides: true,
+        slidesPerView: 3,
+        slidesPerGroup: 1,
+        spaceBetween: 30,
+        navigation: {
+            nextEl: '.fleet-slider-container .swiper-button-next',
+            prevEl: '.fleet-slider-container .swiper-button-prev',
+        },
+        breakpoints: {
             0: { slidesPerView: 1, spaceBetween: 20 },
             576: { slidesPerView: 2, spaceBetween: 20 },
             768: { slidesPerView: 3, spaceBetween: 30 },
-            1024: { slidesPerView: 3, spaceBetween: 40 } 
+            1024: { slidesPerView: 3, spaceBetween: 40 }
         },
-        on: { init: function() { setTimeout(() => AOS.refresh(), 300); }, slideChangeTransitionEnd: function() { AOS.refresh(); } }
-    });
-
-    // --- LÓGICA DE ROLAGEM E DESTAQUE PARA LINK COMPARTILHADO ---
-// Verifica se a página foi carregada com um #veiculo- no link
-if (window.location.hash) {
-
-    
-    // Espera um instante para a página carregar
-    setTimeout(() => {
-        const vehicleId = window.location.hash;
-        // ⭐ MUDANÇA PRINCIPAL AQUI: O novo alvo é a seção inteira da frota
-        const scrollTarget = document.getElementById('fleet'); 
-        const vehicleCard = document.querySelector(vehicleId);
-
-        // 1. Rola a tela para o TOPO da seção "Nossa Frota"
-        if (scrollTarget) {
-            scrollTarget.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start' // 'start' alinha o alvo no topo da tela
-            });
+        on: {
+            init: function () {
+                setTimeout(() => AOS.refresh(), 300);
+            },
+            slideChangeTransitionEnd: function () {
+                AOS.refresh();
+            }
         }
+    };
 
-        // 2. Aplica o destaque no card correto
-        if (vehicleCard) {
-    /*
-    // Remove o destaque de qualquer outro card que possa tê-lo
-    document.querySelectorAll('.vehicle-card.highlight').forEach(card => {
-        card.classList.remove('highlight');
-    });
+    function initSwiper(options) {
+        if (fleetSlider) {
+            fleetSlider.destroy(true, true);
+        }
+        fleetSlider = new Swiper('.fleet-slider', options);
 
-    // Adiciona a classe de destaque
-    vehicleCard.classList.add('highlight');
+        const customPaginationContainer = document.querySelector('.custom-pagination');
+        customPaginationContainer.innerHTML = '';
 
-    // Remove o destaque após 3 segundos
-    setTimeout(() => {
-        vehicleCard.classList.remove('highlight');
-    }, 3000);
-    */
-}
-    }, 500); // Atraso para garantir que os elementos da página foram renderizados
-}
+        if (fleetSlider.slides.length > 0) {
+            fleetSlider.slides.forEach((slide, index) => {
+                const bullet = document.createElement('span');
+                bullet.classList.add('swiper-pagination-bullet');
+                bullet.addEventListener('click', () => {
+                    fleetSlider.slideToLoop(index);
+                });
+                customPaginationContainer.appendChild(bullet);
+            });
+
+            const updateBullets = () => {
+                const bullets = customPaginationContainer.querySelectorAll('.swiper-pagination-bullet');
+                bullets.forEach((bullet, index) => {
+                    if (index === fleetSlider.realIndex) {
+                        bullet.classList.add('swiper-pagination-bullet-active');
+                    } else {
+                        bullet.classList.remove('swiper-pagination-bullet-active');
+                    }
+                });
+            };
+
+            fleetSlider.on('slideChange', updateBullets);
+            updateBullets();
+        }
+    }
+
+    initSwiper(swiperOptions);
+    
     // --- LÓGICA DE FILTRO E PESQUISA ---
     const searchInput = document.getElementById('vehicleSearch');
     const searchButton = document.querySelector('.search-btn');
+    const clearSearchButton = document.querySelector('.clear-search-btn');
     const filterButtons = document.querySelectorAll('.fleet-filter .filter-btn');
     const noResultsMessage = document.querySelector('.no-results-message');
     const fleetSliderContainer = document.querySelector('.fleet-slider-container');
     const resetButton = document.querySelector('.no-results-message .btn-primary');
     const originalSlidesHTML = Array.from(document.querySelectorAll('.fleet-slider .swiper-slide:not(.swiper-slide-duplicate)')).map(slide => slide.outerHTML);
 
-   function updateFleetView() {
-    // Adiciona uma classe ao body para desativar as animações via CSS.
-    // Isso acontece na primeira vez que a função é chamada.
-    document.body.classList.add('filtro-ativo');
+   let previousFilter = 'all';
 
+   function updateFleetView() {
     const searchTerm = searchInput.value.trim().toLowerCase();
-    const activeCategory = document.querySelector('.fleet-filter .filter-btn.active').dataset.filter;
+    let activeCategory = document.querySelector('.fleet-filter .filter-btn.active').dataset.filter;
+
+    if (searchTerm) {
+        activeCategory = 'all';
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+    }
+
+    const isFiltered = searchTerm || activeCategory !== 'all';
+
+    if (isFiltered) {
+        document.body.classList.add('filtro-ativo');
+    } else {
+        document.body.classList.remove('filtro-ativo');
+    }
+
+    if (searchTerm) {
+        clearSearchButton.style.display = 'block';
+    } else {
+        clearSearchButton.style.display = 'none';
+    }
     
     const filteredSlides = originalSlidesHTML.filter(slideHTML => {
         const tempDiv = document.createElement('div');
@@ -3003,28 +3102,70 @@ if (window.location.hash) {
         return categoryMatch && searchMatch;
     });
 
-    fleetSlider.removeAllSlides();
-    if (filteredSlides.length > 0) {
-        fleetSlider.appendSlide(filteredSlides);
-        fleetSliderContainer.style.display = 'block';
-        noResultsMessage.style.display = 'none';
-    } else {
-        fleetSliderContainer.style.display = 'none';
-        noResultsMessage.style.display = 'block';
+    const fleetSliderEl = document.querySelector('.fleet-slider');
+    const swiperContainer = fleetSliderEl.querySelector('.swiper-wrapper');
+    
+    if (activeCategory !== previousFilter) {
+        const order = ['all', 'passeio', 'picape'];
+        const previousIndex = order.indexOf(previousFilter);
+        const currentIndex = order.indexOf(activeCategory);
+
+        if (currentIndex > previousIndex) {
+            fleetSliderEl.classList.add('slide-right');
+        } else {
+            fleetSliderEl.classList.add('slide-left');
+        }
     }
-    fleetSlider.update();
-    AOS.refresh();
+
+    setTimeout(() => {
+        swiperContainer.innerHTML = ''; // Limpa o wrapper
+
+        if (filteredSlides.length > 0) {
+            swiperContainer.innerHTML = filteredSlides.join('');
+            fleetSliderContainer.style.display = 'block';
+            noResultsMessage.style.display = 'none';
+        } else {
+            fleetSliderContainer.style.display = 'none';
+            noResultsMessage.style.display = 'block';
+        }
+
+        const currentOptions = { ...swiperOptions };
+        if (isFiltered) {
+            currentOptions.loop = false;
+            currentOptions.centeredSlides = false;
+        }
+        
+        initSwiper(currentOptions);
+        fleetSlider.update();
+        AOS.refresh();
+
+        previousFilter = activeCategory;
+
+        setTimeout(() => {
+            fleetSliderEl.classList.remove('slide-right', 'slide-left');
+        }, 500);
+    }, 10);
 }
 
     function resetSearch() {
         searchInput.value = '';
+        clearSearchButton.style.display = 'none';
+        document.body.classList.remove('filtro-ativo');
         filterButtons.forEach(btn => btn.classList.remove('active'));
         document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
-        updateFleetView();
+        
+        const swiperContainer = document.querySelector('.fleet-slider .swiper-wrapper');
+        swiperContainer.innerHTML = originalSlidesHTML.join('');
+        initSwiper(swiperOptions);
+        fleetSlider.update();
+        
+        fleetSliderContainer.style.display = 'block';
+        noResultsMessage.style.display = 'none';
     }
     
     searchInput.addEventListener('keyup', debounce(updateFleetView, 400));
     searchButton.addEventListener('click', (e) => { e.preventDefault(); updateFleetView(); });
+    clearSearchButton.addEventListener('click', resetSearch);
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
             filterButtons.forEach(btn => btn.classList.remove('active'));
