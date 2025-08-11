@@ -3188,9 +3188,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- EVENT LISTENER DE CLIQUE PRINCIPAL ---
     document.addEventListener('click', async function(event) {
         if (event.target.closest('.share-btn')) {
+            console.log('Share button clicked');
             event.preventDefault();
             const vehicleCard = event.target.closest('.vehicle-card');
-            if (!vehicleCard) return;
+            if (!vehicleCard) {
+                console.log('Vehicle card not found');
+                return;
+            }
 
             const vehicleTitle = vehicleCard.querySelector('h3').textContent.trim();
             const specNodes = vehicleCard.querySelectorAll('.vehicle-specs .spec-item span');
@@ -3199,13 +3203,26 @@ document.addEventListener('DOMContentLoaded', function() {
             const baseUrl = 'https://jaguarlocadora.com';
             const vehicleUrl = `${baseUrl}/#frota`;
             const formattedText = `Jaguar Locadora\n- ${vehicleTitle}\n- ${specsText}\n\nDisponível para locação! ${vehicleUrl}`;
-            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(formattedText)}`;
+            console.log('Formatted text:', formattedText);
 
-            if (/Android|iOS/i.test(navigator.userAgent)) { // Comportamento Mobile
-                window.location.href = whatsappUrl;
+            if (navigator.share) { // Comportamento Mobile
+                try {
+                    await navigator.share({
+                        title: 'Jaguar Locadora',
+                        text: formattedText,
+                        url: vehicleUrl
+                    });
+                    console.log('Shared successfully via mobile');
+                } catch (error) {
+                    console.error('Erro ao compartilhar (Mobile):', error);
+                }
             } else { // Comportamento Desktop com Fallback
-                navigator.clipboard.writeText(formattedText);
-                showCopyToast('Informações do veículo copiadas!');
+                const copied = await copyTextToClipboard(formattedText);
+                if (copied) {
+                    showCopyToast('Informações do veículo copiadas!');
+                } else {
+                    alert('Não foi possível copiar automaticamente.');
+                }
             }
         }
     });
